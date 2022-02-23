@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Get location info and write to redshift.conf
+
+GEOCLUE=$(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
+
+LATITUDE=$(echo $GEOCLUE | cut -d ':' -f 1)
+LONGITUDE=$(echo $GEOCLUE | cut -d ':' -f 2)
+
+[ ! -d ~/.config/redshift ] && mkdir -p ~/.config/redshift
+
+cat << EOF > ~/.config/redshift/redshift.conf
+[redshift]
+location-provider=manual
+
+[manual]
+lat=$LATITUDE
+lon=$LONGITUDE
+EOF

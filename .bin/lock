@@ -1,0 +1,41 @@
+#!/bin/bash
+
+i3lock --nofork             \
+    --ignore-empty-password		\
+	\
+    --indicator				\
+    --bar-indicator			\
+    --bar-pos="1070"			\
+    --bar-base-width="10"		\
+    --bar-orientation=horizontal	\
+    --bar-color=2e344000		\
+    --ringver-color=88c0d000		\
+    --ringwrong-color=bf616a00		\
+    --bshl-color=5e81ac			\
+    --keyhl-color=a3be8c			\
+	\
+    --clock					\
+    --time-color=e9cdd0ff		\
+    --time-str="%I:%M %p"		\
+    --time-font="Calvin and Hobbes"	\
+    --time-size=150			\
+    --time-pos="450:200"		\
+	\
+    --date-color=e9cdd0ff		\
+    --date-str="%A, %d %B"		\
+    --date-font="Calvin and Hobbes"		\
+    --date-size=95			\
+    --date-pos="tx:345"			\
+	\
+	--verif-color=e9cdd0ff		\
+    --verif-font="Calvin and Hobbes"	\
+    --verif-size=150		\
+    --verif-text="Chotto a minute!"		\
+	\
+	--wrong-color=e9cdd0ff		\
+    --wrong-font="Calvin and Hobbes"	\
+    --wrong-size=150		\
+    --wrong-text="Wrong, bitch!"		\
+	\
+    --image=/home/woanmeo11/pics/wallpapers/wallhaven-j3l2gw.jpg	\
+	--fill
