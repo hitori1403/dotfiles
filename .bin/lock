@@ -18,13 +18,13 @@ i3lock --nofork             \
     --time-color=e9cdd0ff		\
     --time-str="%I:%M %p"		\
     --time-font="Calvin and Hobbes"	\
-    --time-size=150			\
+    --time-size=140			\
     --time-pos="450:200"		\
 	\
     --date-color=e9cdd0ff		\
     --date-str="%A, %d %B"		\
     --date-font="Calvin and Hobbes"		\
-    --date-size=95			\
+    --date-size=85			\
     --date-pos="tx:345"			\
 	\
 	--verif-color=e9cdd0ff		\
