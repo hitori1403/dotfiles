@@ -10,14 +10,12 @@ local total_mails = 0
 local db = {}
 local db_tmp = {}
 
-local waifu = beautiful.get_random_waifu()
-
 local send_notification = function (username, mail_id, text, timeout)
 	local notif
 	notif = naughty.notify({
 		title = "NEW EMAIL BRO!",
 		text = text,
-		icon = waifu,
+		icon = beautiful.get_random_waifu(),
 		timeout = timeout,
 		run = function ()
             db[mail_id] = nil
@@ -54,11 +52,11 @@ awful.widget.watch('python ' .. CURRENT_WORKING_DIR .. 'get_unread_mails.py', 60
 			if db[m['id']] == nil then
 				db[m['id']] = m
 				show_mail(m, 15)
-				awesome.emit_signal('evil::mail', total_mails)
 			end
 		end
 
 		db = db_tmp
+		awesome.emit_signal('evil::mail', total_mails)
 	end
 end)
 
