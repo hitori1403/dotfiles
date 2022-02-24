@@ -23,9 +23,9 @@ awesome.connect_signal('modules::touchpad',
 			return
 		end
 
-		awful.spawn.easy_async('xinput list',
+		awful.spawn.easy_async_with_shell("xinput list | grep -Eio '(touchpad|glidepoint)\\s*id\\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'",
 			function (stdout)
-				local device_id = stdout:match('Touchpad%s*id=(%d+)')
+				local device_id = stdout
 
 				if value == 'toggle' then
 					local fd = io.popen('xinput list-props ' .. device_id, 'r')
