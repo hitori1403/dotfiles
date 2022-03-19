@@ -1,19 +1,7 @@
 #!/bin/bash
 
-_PID=$(pgrep -x awesome)
-_UID=$(ps -o uid= -p $_PID)
-USER=$(id -nu $_UID)
-DBUS_ADDRESS_VAR=$(grep -z "^DBUS_SESSION_BUS_ADDRESS=" /proc/$_PID/environ)
-
 touchpad() {
-  	su - $USER -c "/bin/bash \
-                    -c ' \
-                        export DISPLAY=:0; \
-                        export XAUTHORITY='/home/$USER/.Xauthority'; \
-                        export $DBUS_ADDRESS_VAR; \
-                        awesome-client \"awesome.emit_signal(\\\"modules::touchpad\\\", \\\"$1\\\")\" \
-                    ' \
-                "
+    awesome-client "awesome.emit_signal(\"modules::touchpad\", \"$1\")"
 }
 
 # Control the touchpad through awesomeWM's signal
