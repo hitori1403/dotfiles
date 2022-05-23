@@ -112,3 +112,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 dotfiles config status.showUntrackedFiles no
+
+# ASLR
+alias 'aslr_off'='echo 0 | sudo tee /proc/sys/kernel/randomize_va_space'
+alias 'aslr_on'='echo 2 | sudo tee /proc/sys/kernel/randomize_va_space'
