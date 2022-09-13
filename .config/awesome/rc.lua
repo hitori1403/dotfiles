@@ -158,7 +158,7 @@ local function set_wallpaper(s)
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        gears.wallpaper.maximized(wallpaper, s, true)
+        gears.wallpaper.maximized(wallpaper, s, false)
     end
 end
 
@@ -352,13 +352,13 @@ globalkeys = gears.table.join(
 	-- Pulseaudio volume control
 	awful.key({ }, "XF86AudioRaiseVolume",
 		function ()
-			awful.spawn("pactl set-sink-volume 0 +2%")
+			awful.spawn("pactl set-sink-volume 0 +5%")
 			awesome.emit_signal('modules::volume')
 		end
 	),
 	awful.key({ }, "XF86AudioLowerVolume",
 		function ()
-			awful.spawn("pactl set-sink-volume 0 -2%")
+			awful.spawn("pactl set-sink-volume 0 -5%")
 			awesome.emit_signal('modules::volume')
 		end
 	),
@@ -372,13 +372,13 @@ globalkeys = gears.table.join(
 	-- Screen brightness (using acpilight)
 	awful.key({ }, "XF86MonBrightnessUp",
 		function ()
-			awful.spawn("xbacklight -inc 2")
+			awful.spawn("xbacklight -inc 5")
 			awesome.emit_signal('modules::backlight')
 		end
 	),
 	awful.key({ }, "XF86MonBrightnessDown",
 		function ()
-			awful.spawn("xbacklight -dec 2")
+			awful.spawn("xbacklight -dec 5")
 			awesome.emit_signal('modules::backlight')
 		end
 	),
@@ -421,9 +421,15 @@ globalkeys = gears.table.join(
 	),
 	awful.key({ "Shift" }, "Print",
 		function ()
-			awful.spawn.with_shell("maim -su ~/pics/$(date +%y-%m-%d.%T).png")
+			awful.spawn.with_shell("maim -su /tmp/$(date +%y-%m-%d.%T).png")
 		end,
-		{description = "save to file", group = "screenshot"}
+		{description = "save selected region to file", group = "screenshot"}
+	),
+	awful.key({ "Control" }, "Print",
+		function ()
+			awful.spawn.with_shell("maim -u /tmp/$(date +%y-%m-%d.%T).png")
+		end,
+		{description = "save fullscreen to file", group = "screenshot"}
 	),
 
 	-- Lock screen
@@ -437,7 +443,7 @@ globalkeys = gears.table.join(
 	-- File manager
 	awful.key({ modkey }, 'e',
 		function ()
-			awful.spawn("pcmanfm")
+			awful.spawn("thunar")
 		end,
 		{description = "file manager", group = 'system'}
 	)

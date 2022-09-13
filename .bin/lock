@@ -19,7 +19,7 @@ i3lock --nofork             \
     --time-str="%I:%M %p"		\
     --time-font="Calvin and Hobbes"	\
     --time-size=140			\
-    --time-pos="450:200"		\
+    --time-pos="550:200"		\
 	\
     --date-color=e9cdd0ff		\
     --date-str="%A, %d %B"		\
@@ -35,7 +35,7 @@ i3lock --nofork             \
 	--wrong-color=e9cdd0ff		\
     --wrong-font="Calvin and Hobbes"	\
     --wrong-size=150		\
-    --wrong-text="Wrong, bitch!"		\
+    --wrong-text="Wrong bro!"		\
 	\
-    --image=/home/woanmeo11/pics/wallpapers/wallhaven-j3l2gw.jpg	\
+    --image=/home/woanmeo11/pics/wallpapers/perchek-industrie-dlTcg14mxmE-unsplash.jpg	\
 	--fill

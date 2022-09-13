@@ -5,10 +5,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-" fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 " Auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -35,6 +31,8 @@ call plug#end()
 
 " Using mouse
 set mouse=a
+set ttymouse=sgr
+let NERDTreeMouseMode=2
 
 " Paste from clipboard
 set pastetoggle=<F2>
@@ -100,13 +98,21 @@ endfunction
 " PHP
 function! PHP_SET()
 	nnoremap <buffer> <F5> :w<CR>:!clear; php %<CR>
+	nnoremap <buffer> <F6> :w<CR>:!clear; php -S localhost:1337<CR>
+
+endfunction
+
+" NODEJS
+function! NODEJS_SET()
+	nnoremap <buffer> <F5> :w<CR>:!clear; node %<CR>
 endfunction
 
 " Load configuration corresponding to file type
-autocmd FileType python call PYTHON_SET()
-autocmd FileType sh		call BASH_SET()
-autocmd FileType asm	call NASM_SET()
-autocmd FileType php	call PHP_SET()
+autocmd FileType python			call PYTHON_SET()
+autocmd FileType sh				call BASH_SET()
+autocmd FileType asm			call NASM_SET()
+autocmd FileType php			call PHP_SET()
+autocmd FileType javascript		call NODEJS_SET()
 
 autocmd BufNewFile,BufRead *.sage call SAGE_SET()
 

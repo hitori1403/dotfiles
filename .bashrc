@@ -116,3 +116,8 @@ dotfiles config status.showUntrackedFiles no
 # ASLR
 alias 'aslr_off'='echo 0 | sudo tee /proc/sys/kernel/randomize_va_space'
 alias 'aslr_on'='echo 2 | sudo tee /proc/sys/kernel/randomize_va_space'
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
