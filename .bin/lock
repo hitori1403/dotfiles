@@ -1,41 +1,57 @@
 #!/bin/bash
 
-i3lock --nofork             \
-    --ignore-empty-password		\
+fg=e9cdd0ff
+highlight=78dbfb
+wrong=cea3ffff
+verify=$highlight
+transparent=00000000
+
+i3lock --nofork \
+    --ignore-empty-password \
+    --pass-media-keys \
+    --pass-volume-keys \
+    \
+	--fill \
+    --image=/home/woanmeo11/pics/wallpapers/wallhaven-m95v79.png \
 	\
-    --indicator				\
-    --bar-indicator			\
-    --bar-pos="1070"			\
-    --bar-base-width="10"		\
-    --bar-orientation=horizontal	\
-    --bar-color=2e344000		\
-    --ringver-color=88c0d000		\
-    --ringwrong-color=bf616a00		\
-    --bshl-color=5e81ac			\
-    --keyhl-color=a3be8c			\
+    --indicator \
+    --radius=30 \
+    --ring-width=10 \
+    --ring-color=$fg \
+    --inside-color=$transparent \
+    --ringver-color=$highlight \
+    --insidever-color=$transparent \
+    --ringwrong-color=$wrong \
+    --insidewrong-color=$transparent \
+    --line-uses-inside \
+    --keyhl-color=$highlight \
+    --bshl-color=$highlight \
+    --separator-color=$highlight \
+    --ind-pos="550:500" \
 	\
-    --clock					\
-    --time-color=e9cdd0ff		\
-    --time-str="%I:%M %p"		\
-    --time-font="Calvin and Hobbes"	\
-    --time-size=140			\
-    --time-pos="550:200"		\
+    --force-clock \
+    --time-color=$fg \
+    --time-str="%I:%M %p" \
+    --time-font="Calvin and Hobbes" \
+    --time-size=150 \
+    --time-pos="ix:iy-300" \
 	\
-    --date-color=e9cdd0ff		\
-    --date-str="%A, %d %B"		\
-    --date-font="Calvin and Hobbes"		\
-    --date-size=85			\
-    --date-pos="tx:345"			\
+    --date-color=$fg \
+    --date-str="%A, %d %B" \
+    --date-font="Calvin and Hobbes" \
+    --date-size=90 \
+    --date-pos="tx:ty+120" \
+    \
+	--verif-color=$fg \
+    --verif-font="Calvin and Hobbes" \
+    --verif-size=70 \
+    --verif-text="Chotto a minute!" \
+    --verif-pos="ix:iy+200" \
 	\
-	--verif-color=e9cdd0ff		\
-    --verif-font="Calvin and Hobbes"	\
-    --verif-size=150		\
-    --verif-text="Chotto a minute!"		\
+	--wrong-color=$fg \
+    --wrong-font="Calvin and Hobbes" \
+    --wrong-size=70 \
+    --wrong-text="Wrong bro!" \
+    --wrong-pos="ix:iy+200" \
 	\
-	--wrong-color=e9cdd0ff		\
-    --wrong-font="Calvin and Hobbes"	\
-    --wrong-size=150		\
-    --wrong-text="Wrong bro!"		\
-	\
-    --image=/home/woanmeo11/pics/wallpapers/perchek-industrie-dlTcg14mxmE-unsplash.jpg	\
-	--fill
+    --noinput-text=""
