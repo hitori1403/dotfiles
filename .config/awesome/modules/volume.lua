@@ -18,16 +18,18 @@ awesome.connect_signal('modules::volume',
 	function ()
 		awful.spawn.easy_async('pactl list sinks',
 			function (stdout)
-				local state
-				local percentage = stdout:match('Volume: front%-left: %d+ /%s+(%d+%%)')
+				if stdout then
+					local percentage = stdout:match('Volume: front%-left: %d+ /%s+(%d+%%)')
+					local state
 
-				if stdout:match('Mute: yes') then
-					state = '[Muted]'
-				else
-					state = '[On]'
+					if stdout:match('Mute: yes') then
+						state = '[Muted]'
+					else
+						state = '[On]'
+					end
+
+					send_notification(state .. ' ' .. percentage)
 				end
-
-				send_notification(state .. ' ' .. percentage)
 			end
 		)
 	end
