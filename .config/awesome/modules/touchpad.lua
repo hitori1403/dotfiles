@@ -42,7 +42,7 @@ awesome.connect_signal('modules::touchpad',
 				end
 
 				awful.spawn(string.format('xinput %s %s', value, device_id))
-				send_notification(string.format('Your touchpad is now %sd', value))
+				send_notification(string.format('Your touchpad is now %s', value))
 			end
 		)
 	end

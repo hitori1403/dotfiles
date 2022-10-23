@@ -29,6 +29,8 @@ awesome.connect_signal('modules::volume',
 					end
 
 					send_notification(state .. ' ' .. percentage)
+				else
+					send_notification('Not responding!')
 				end
 			end
 		)
