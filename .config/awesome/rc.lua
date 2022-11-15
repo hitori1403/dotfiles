@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global, undefined-global
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -48,7 +49,6 @@ end
 beautiful.init(gears.filesystem.get_configuration_dir() .. "/theme/theme.lua")
 
 -- Load daemons and modules
-require('evil')
 require('modules')
 
 -- This is used later as the default terminal and editor to run.
@@ -196,21 +196,7 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
-    -- Create a mail widget
-    s.mail = require("widgets.mail")
-
-    -- Create a battery widget
-    s.battery = require("widgets.battery")
-
-	-- Create a date widget
-	s.date = require('widgets.date')
-
-    -- Create the separator
-    s.separator = wibox.widget {
-        color        = '#00000000',
-        forced_width = 10,
-        widget = wibox.widget.separator
-    }
+    local bat = require("widgets.bat")
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
@@ -227,12 +213,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            s.separator,
-            s.mail,
-            s.separator,
-            s.battery,
-			s.separator,
-            s.date,
+            bat,
+            wibox.widget.textclock(),
             s.mylayoutbox,
         },
     }
@@ -417,15 +399,35 @@ globalkeys = gears.table.join(
 		function ()
 			awful.spawn.with_shell("maim -su | xclip -selection clipboard -t image/png")
 		end,
-		{description = "copy to clipboard", group = "screenshot"}
+		{description = "copy selected region to clipboard", group = "screenshot"}
 	),
-	awful.key({ "Shift" }, "Print",
+	awful.key({ "Control" }, "Print",
 		function ()
-			awful.spawn.with_shell("maim -su /tmp/$(date +%y-%m-%d.%T).png")
+			awful.spawn.with_shell("maim -su /tmp/$(date +%F.%T).png")
 		end,
 		{description = "save selected region to file", group = "screenshot"}
 	),
-	awful.key({ "Control" }, "Print",
+
+	awful.key({	"Shift" }, "Print",
+		function ()
+			awful.spawn.with_shell("maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png")
+		end,
+		{description = "copy selected window to clipboard", group = "screenshot"}
+	),
+	awful.key({	"Control", "Shift" }, "Print",
+		function ()
+			awful.spawn.with_shell("maim -i $(xdotool getactivewindow) /tmp/$(date +%F.%T).png")
+		end,
+		{description = "save selected window to file", group = "screenshot"}
+	),
+
+	awful.key({ "Mod1" }, "Print",
+		function ()
+			awful.spawn.with_shell("maim -u | xclip -selection clipboard -t image/png")
+		end,
+		{description = "copy fullscreen to clipboard", group = "screenshot"}
+	),
+	awful.key({ "Ctrl", "Mod1" }, "Print",
 		function ()
 			awful.spawn.with_shell("maim -u /tmp/$(date +%y-%m-%d.%T).png")
 		end,
@@ -699,3 +701,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Disable touchpad when start
 awesome.emit_signal('modules::touchpad', 'disable')
 -- }}}
+
+
+-- require('popup')

@@ -9,6 +9,7 @@ theme.wallpaper = themes_path .. 'background.jpg'
 
 -- {{{ Styles
 theme.font      = 'Terminus 9'
+theme.font_icon = 'Material Icons Round '
 theme.systray_icon_spacing = 10
 
 -- {{{ Colors
@@ -32,7 +33,7 @@ theme.border_marked = '#CC9393'
 
 -- {{{ Taglist
 theme.taglist_fg_focus = '#00CCFF'
---- }}}
+-- }}}
 
 -- {{{ Tasklist
 theme.tasklist_bg_focus = theme.bg_normal
@@ -50,6 +51,7 @@ theme.mouse_finder_color = '#CC9393'
 -- menu_[border_color|border_width]
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
+-- }}}
 -- }}}
 
 -- {{{ Icons
@@ -82,16 +84,7 @@ theme.layout_cornerne   = themes_path .. 'layouts/cornerne.png'
 theme.layout_cornersw   = themes_path .. 'layouts/cornersw.png'
 theme.layout_cornerse   = themes_path .. 'layouts/cornerse.png'
 -- }}}
-
-local icons = {}
-
-icons.battery		   = themes_path .. 'icons/battery.svg'
-icons.battery_charging = themes_path .. 'icons/battery-charging.svg'
-icons.clock			   = themes_path .. 'icons/clock.svg'
-icons.mail			   = themes_path .. 'icons/mail.svg'
 -- }}}
-
-theme.icons = icons
 
 -- {{{ Function
 theme.get_random_waifu = function ()
