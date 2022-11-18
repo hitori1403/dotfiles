@@ -4,9 +4,13 @@
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
 
+EDITOR=/usr/bin/vim
+
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 SDL_IM_MODULE=fcitx
 
 QT_QPA_PLATFORMTHEME=qt5ct
+
+_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
