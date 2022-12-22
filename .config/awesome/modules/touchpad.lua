@@ -1,10 +1,9 @@
 local awful	= require('awful')
-local beautiful = require('beautiful')
 local naughty	= require('naughty')
+local beautiful = require('beautiful')
 
 local id
-
-local send_notification = function (text)
+local notify = function (text)
 	id = naughty.notify({
 		title = '[ TOUCHPAD ]',
 		text = text,
@@ -13,35 +12,53 @@ local send_notification = function (text)
 	}).id
 end
 
-awesome.connect_signal('modules::touchpad',
+-- Control behavior of touchpad
+-- @param {string} mode - Value can be 'enable', 'disable', 'toggle' or 'auto'
 
-	-- Control behavior of touchpad
-	-- @param {string} value - Value can be 'enable' or 'disable' or 'toggle'
+local touchpad = function (value)
+	local options = {'disable', 'enable', 'toggle', 'auto'}
 
-	function (value)
-		if value ~= 'enable' and value ~= 'disable' and value ~= 'toggle' then
-			return
+	local mode
+	for i, v in pairs(options) do
+		if value == v then
+			mode = i - 1
+			break
 		end
+	end
 
-		awful.spawn.easy_async_with_shell("xinput list | grep -Eio '(touchpad|glidepoint)\\s*id\\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'",
-			function (stdout)
-				local device_id = stdout
+	if mode == nil then
+		return
+	end
 
-				if value == 'toggle' then
-					local fd = io.popen('xinput list-props ' .. device_id, 'r')
-					local state = fd:read('*a')
-					fd:close()
+	awful.spawn.easy_async_with_shell([[xinput list | grep -Eio '(touchpad|glidepoint)\s*id=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}']],
+		function (stdout)
+			local device_id = stdout
 
-					if state:match('Device Enabled %(%d+%):%s(%d)') == '0' then
-						value = 'enable'
-					else
-						value = 'disable'
-					end
-				end
-
-				awful.spawn(string.format('xinput %s %s', value, device_id))
-				send_notification(string.format('Your touchpad is now %s', value))
+			if mode == 2 then
+				local fd = io.popen('xinput list-props ' .. device_id, 'r')
+				local state = fd:read('*a')
+				fd:close()
+				mode = 1 - tonumber(state:match('Device Enabled %(%d+%):%s(%d)'))
+			elseif mode == 3 then	
+				local fd = io.popen('ls /dev/input/by-id/*-mouse 2> /dev/null')
+				local mouse = fd:read('*a')
+				fd:close()
+				mode = mouse == '' and 1 or 0
 			end
-		)
+
+			awful.spawn(string.format('xinput set-prop %s 156 %s', device_id, mode))
+
+			if mode == 0 then
+				notify('Touchpad is now disable')
+			else
+				notify('Touchpad is now enable')
+			end
+		end
+	)
+	end
+
+awesome.connect_signal('modules::touchpad',
+	function (mode)
+		touchpad(mode)
 	end
 )

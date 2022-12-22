@@ -109,8 +109,12 @@ export PATH=$PATH:~/.local/bin/
 # Color for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# Dotfiles
-git --work-tree=$HOME config status.showUntrackedFiles no
+# dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dotfiles config status.showUntrackedFiles no
+
+source /usr/share/bash-completion/completions/git
+__git_complete config __git_main
 
 # ASLR
 alias 'aslr_off'='echo 0 | sudo tee /proc/sys/kernel/randomize_va_space'

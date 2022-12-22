@@ -53,7 +53,7 @@ require('modules')
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "vim"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -196,6 +196,8 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
+		local battery = require('widgets.battery')
+
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -211,6 +213,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
+						battery,
             wibox.widget.textclock(),
             s.mylayoutbox,
         },
@@ -683,21 +686,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- {{{ Autostart
--- -- This function will run once every time Awesome is started
--- local run_once = function (cmd_arr)
--- 	for _, cmd in ipairs(cmd_arr) do
--- 		awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || %s", cmd, cmd))
--- 	end
--- end
---
--- run_once({
--- 	'redshift',
--- 	'fcitx'
--- })
-
--- Disable touchpad when start
-awesome.emit_signal('modules::touchpad', 'disable')
+-- Auto touchpad when start
+awesome.emit_signal('modules::touchpad', 'auto')
 -- }}}
-
-
--- require('popup')

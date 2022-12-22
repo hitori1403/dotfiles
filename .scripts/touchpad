@@ -5,6 +5,6 @@ touchpad() {
 }
 
 # Control the touchpad through awesomeWM's signal
-# @param: {string} $1 - Value can be 'enable', 'disable' or 'toggle'
+# @param: {string} $1 - Value can be 'enable', 'disable', 'toggle' or 'auto'
 
 touchpad $1 &

@@ -9,7 +9,7 @@ theme.wallpaper = themes_path .. 'background.jpg'
 
 -- {{{ Styles
 theme.font      = 'Terminus 9'
-theme.font_icon = 'Material Icons Round '
+theme.font_icon = 'Material Icons Round 14'
 theme.systray_icon_spacing = 10
 
 -- {{{ Colors
