@@ -1,6 +1,6 @@
 local naughty	= require("naughty")
 local beautiful = require("beautiful")
-local awful		= require('awful')
+local awful	= require('awful')
 
 local id
 local waifu = beautiful.get_random_waifu()

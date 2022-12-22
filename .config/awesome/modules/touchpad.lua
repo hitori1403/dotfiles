@@ -1,15 +1,15 @@
-local awful		= require('awful')
+local awful	= require('awful')
 local beautiful = require('beautiful')
 local naughty	= require('naughty')
 
-local notification_id
+local id
 
 local send_notification = function (text)
-	notification_id = naughty.notify({
+	id = naughty.notify({
 		title = '[ TOUCHPAD ]',
 		text = text,
 		icon = beautiful.get_random_waifu(),
-		replaces_id = notification_id
+		replaces_id = id
 	}).id
 end
 
@@ -32,9 +32,7 @@ awesome.connect_signal('modules::touchpad',
 					local state = fd:read('*a')
 					fd:close()
 
-					state = state:match('Device Enabled %(%d+%):%s(%d)')
-
-					if state == '0' then
+					if state:match('Device Enabled %(%d+%):%s(%d)') == '0' then
 						value = 'enable'
 					else
 						value = 'disable'
