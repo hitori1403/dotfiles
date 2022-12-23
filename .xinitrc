@@ -1,5 +1,5 @@
 # Update redshift location
-~/.scripts/init_redshift &
+~/.scripts/redshift_init &
 
 # Redshift
 redshift &
