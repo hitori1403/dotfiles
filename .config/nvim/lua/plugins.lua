@@ -83,6 +83,12 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
+	-- auto tags
+	use {
+		'windwp/nvim-ts-autotag',
+		config = [[require('nvim-ts-autotag').setup()]]
+	}
+
 	-- Fuzzy finder
 	use({
 		"nvim-telescope/telescope.nvim",
