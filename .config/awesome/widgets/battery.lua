@@ -6,6 +6,8 @@ local naughty = require 'naughty'
 local beautiful = require 'beautiful'
 
 local id
+local hook_notify = false
+
 local notify = function (text)
 	id = naughty.notify({
 		title = '[ BATTERY ]',
@@ -20,10 +22,7 @@ local baticon = wibox.widget {
 	widget = wibox.widget.textbox
 }
 
-local hook_notify = false
-
 local bat = lain.widget.bat {
-	notify = 'off',
 	timeout = 60,
 	settings = function ()
 		if bat_now.status and bat_now.status ~= 'N/A' then
@@ -61,6 +60,24 @@ local bat = lain.widget.bat {
 			baticon:set_markup('\u{e1a6}')
 			widget:set_markup(bat_now.perc)
 		end
+
+		bat_notification_charged_preset = {
+			title = "[ BATTERY ]",
+			text = "Battery full. You can unplug the cable",
+			icon = beautiful.get_random_waifu(),
+		}
+
+		bat_notification_low_preset = {
+			title = "[ BATTERY ]",
+			text = "Battery low. Plug the cable!",
+			icon = beautiful.get_random_waifu(),
+		}
+
+		bat_notification_critical_preset = {
+			title = "[ BATTERY ]",
+			text = "Battery exhausted. Shutdown imminent",
+			icon = beautiful.get_random_waifu()
+		}
 	end
 }
 
