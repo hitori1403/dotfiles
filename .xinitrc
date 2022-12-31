@@ -1,7 +1,5 @@
 # Environment variables
 export EDITOR=/usr/bin/nvim \
-TERM=/usr/bin/alacritty \
-TERMINAL=/usr/bin/alacritty \
 GTK_IM_MODULE=fcitx \
 QT_IM_MODULE=fcitx \
 XMODIFIERS=@im=fcitx \
