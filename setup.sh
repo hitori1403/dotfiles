@@ -24,7 +24,7 @@ adjust_touchpad_rules() {
 
 copy_config() {
 	cp -r .sysconf/* /etc
-	su $USER -c 'mv .git .dotfiles && cp -r .[^.]* ~'
+	su $USER -c 'cp -r .[^.]* ~ && mv ~/.git ~/.dotfiles'
 }
 
 check_root()
