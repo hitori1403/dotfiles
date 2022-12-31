@@ -1,2 +1,2 @@
-SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="add", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/meo/.Xauthority", ENV{DBUS_SESSION_BUS_ADDRESS}="unix:path=/run/user/1000/bus", RUN+="/usr/bin/su meo -c '/home/meo/.scripts/touchpad disable'"
-SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="remove", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/meo/.Xauthority", ENV{DBUS_SESSION_BUS_ADDRESS}="unix:path=/run/user/1000/bus", RUN+="/usr/bin/su meo -c '/home/meo/.scripts/touchpad enable'"
+SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="add", ENV{DBUS_SESSION_BUS_ADDRESS}="address", RUN+="/usr/bin/su user -c '~/.scripts/touchpad disable'"
+SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="remove", ENV{DBUS_SESSION_BUS_ADDRESS}="address", RUN+="/usr/bin/su user -c '~/.scripts/touchpad enable'"
