@@ -121,9 +121,11 @@ alias 'aslr_off'='echo 0 | sudo tee /proc/sys/kernel/randomize_va_space'
 alias 'aslr_on'='echo 2 | sudo tee /proc/sys/kernel/randomize_va_space'
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if [[ $(command -v pyenv > /dev/null) ]]; then
+	export PYENV_ROOT="$HOME/.pyenv"
+	command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
+fi
 
 # nvm
-source /usr/share/nvm/init-nvm.sh
+command -v nvm > /dev/null && source /usr/share/nvm/init-nvm.sh
