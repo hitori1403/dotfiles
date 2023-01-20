@@ -53,7 +53,6 @@ require('modules')
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-terminal_single_instance = string.format('%s %s || %s', terminal, 'msg create-window', terminal)
 -- editor = os.getenv("EDITOR") or "nvim"
 -- editor_cmd = terminal .. " -e " .. editor
 
@@ -277,7 +276,7 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn.with_shell(terminal_single_instance) end,
+    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
