@@ -46,11 +46,11 @@ local touchpad = function (value)
 				mode = mouse == '' and 1 or 0
 			end
 
-			awful.spawn(string.format('xinput set-prop %s 156 %s', device_id, mode))
-
 			if mode == 0 then
+				awful.spawn(string.format('xinput disable %s', device_id))
 				notify('Touchpad is now disable')
 			else
+				awful.spawn(string.format('xinput enable %s', device_id))
 				notify('Touchpad is now enable')
 			end
 		end
