@@ -4,7 +4,8 @@ GTK_IM_MODULE=fcitx \
 QT_IM_MODULE=fcitx \
 XMODIFIERS=@im=fcitx \
 SDL_IM_MODULE=fcitx \
-_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' \
+XDG_CURRENT_DESKTOP=gnome
 
 # Update redshift location
 ~/.scripts/redshift_init &
