@@ -16,7 +16,7 @@ end
 
 awesome.connect_signal('modules::backlight',
 	function ()
-		awful.spawn.easy_async('xbacklight -get',
+		awful.spawn.easy_async('light -G',
 			function (stdout)
 				send_notification(stdout:sub(1, -2) .. '%')
 			end
