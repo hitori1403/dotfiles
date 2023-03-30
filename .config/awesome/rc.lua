@@ -410,13 +410,13 @@ globalkeys = gears.table.join(
 
 	awful.key({	"Shift" }, "Print",
 		function ()
-			awful.spawn.with_shell("maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png")
+			awful.spawn.with_shell("maim -ui $(xdotool getactivewindow) | xclip -selection clipboard -t image/png")
 		end,
 		{description = "copy selected window to clipboard", group = "screenshot"}
 	),
 	awful.key({	"Control", "Shift" }, "Print",
 		function ()
-			awful.spawn.with_shell("maim -i $(xdotool getactivewindow) /tmp/$(date +%F.%T).png")
+			awful.spawn.with_shell("maim -ui $(xdotool getactivewindow) /tmp/$(date +%F.%T).png")
 		end,
 		{description = "save selected window to file", group = "screenshot"}
 	),
