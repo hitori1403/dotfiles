@@ -38,6 +38,15 @@ return require("packer").startup(function(use)
 		config = [[require("bufferline").setup {}]],
 	})
 
+	-- File explorer
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional
+		},
+		config = [[require("config.nvim-tree")]]
+	}
+
 	-- Snippets plugin
 	use("L3MON4D3/LuaSnip")
 
@@ -45,7 +54,7 @@ return require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
-			"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+			"hrsh7th/cmp-nvim-lsp",                          -- LSP source for nvim-cmp
 			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }, -- Snippets source for nvim-cmp
 		},
 		config = [[require('config.cmp')]],
@@ -95,6 +104,7 @@ return require("packer").startup(function(use)
 		tag = "0.1.0",
 		-- or                            , branch = '0.1.x',
 		requires = { { "nvim-lua/plenary.nvim" } },
+		config = [[require('config.telescope')]]
 	})
 
 	-- Markdown preview
