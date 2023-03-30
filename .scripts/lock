@@ -9,6 +9,7 @@ transparent=00000000
 i3lock --nofork \
     --ignore-empty-password \
     --pass-media-keys \
+    --pass-screen-keys \
     --pass-volume-keys \
     \
 	--fill \
