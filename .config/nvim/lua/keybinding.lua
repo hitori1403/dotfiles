@@ -10,7 +10,8 @@ local runners = {
 	{ 'Run Python file', 'python', '<F5>', 'python %' },
 	{ 'Run Python in .mainfile', 'python', '<F6>',
 		'python $([[ -f .mainfile ]] && cat .mainfile || echo %)' },
-	{ 'Run Javascript file', 'javascript', '<F5>', 'node %' }
+	{ 'Run Javascript file', 'javascript', '<F5>', 'node %' },
+	{ 'Run ASM file',        'asm',        '<F5>', 'as -o %:r.o % --32 && ld -o %:r %:r.o -m elf_i386 && ./%:r' }
 }
 
 local save_and_open_new_terminal =

@@ -61,7 +61,7 @@ for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		flags = lsp_flags,
-		single_file_support = true,
+		-- single_file_support = false,
 		capabilities = capabilities,
 	})
 end

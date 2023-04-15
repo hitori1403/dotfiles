@@ -38,15 +38,6 @@ return require("packer").startup(function(use)
 		config = [[require("bufferline").setup {}]],
 	})
 
-	-- File explorer
-	use {
-		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional
-		},
-		config = [[require("config.nvim-tree")]]
-	}
-
 	-- Snippets plugin
 	use("L3MON4D3/LuaSnip")
 
@@ -106,6 +97,11 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 		config = [[require('config.telescope')]]
 	})
+
+	use {
+		"nvim-telescope/telescope-file-browser.nvim",
+		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+	}
 
 	-- Markdown preview
 	use({
