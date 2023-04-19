@@ -25,18 +25,7 @@ copy_config() {
 	cp -r .[^.]* ~ && mv ~/.git ~/.dotfiles
 }
 
-enable_hibernate_in_grub() {
-	FILE=/etc/default/grub
-
-	echo "Modifying $FILE"
-
-	UUID=$(sudo blkid | awk -F'\"' '/swap/ {print $6}')
-	sudo sed -i "/GRUB_CMDLINE_LINUX_DEFAULT/s/\"$/resume=UUID=$UUID\"/g" $FILE
-	sudo grub-mkconfig -o /boot/grub/grub.cfg
-}
-
 copy_config
 
 handle_acpi_events
 adjust_touchpad_rules
-enable_hibernate_in_grub

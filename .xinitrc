@@ -4,7 +4,8 @@ GTK_IM_MODULE=fcitx \
 QT_IM_MODULE=fcitx \
 XMODIFIERS=@im=fcitx \
 SDL_IM_MODULE=fcitx \
-XDG_CURRENT_DESKTOP=gnome
+QT_QPA_PLATFORMTHEME=qt6ct \
+XDG_CURRENT_DESKTOP=gnome  
 
 # Update redshift location
 ~/.scripts/redshift_init &
