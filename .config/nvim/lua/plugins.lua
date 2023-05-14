@@ -52,7 +52,6 @@ return require("packer").startup(function(use)
 		wants = "LuaSnip",
 	})
 
-	-- Autopair
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
@@ -66,7 +65,6 @@ return require("packer").startup(function(use)
 		config = [[require('config.lspconfig')]],
 	})
 
-	-- tree-sitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -76,7 +74,6 @@ return require("packer").startup(function(use)
 		config = [[require('config.treesitter')]],
 	})
 
-	-- null-ls
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = [[require('config.null-ls')]],
@@ -103,11 +100,12 @@ return require("packer").startup(function(use)
 		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	}
 
-	-- Markdown preview
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
+
+	use('tpope/vim-dispatch')
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

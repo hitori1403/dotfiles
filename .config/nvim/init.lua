@@ -1,8 +1,6 @@
 require("plugins")
 require("keybinding")
-
--- disable mouse
-vim.opt.mouse = ''
+require("dispatch")
 
 -- Show line number
 vim.opt.number = true
@@ -12,8 +10,8 @@ vim.opt.relativenumber = true
 vim.opt.showmode = false
 
 -- Tab size
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 
 -- Colorshcheme
 vim.opt.termguicolors = true
@@ -24,4 +22,4 @@ vim.g.gruvbox_material_enable_italic = 1
 vim.g.gruvbox_material_background = "hard"
 vim.g.gruvbox_material_better_performance = 1
 
-vim.cmd([[colorscheme gruvbox-material]])
+vim.cmd.colorscheme('gruvbox-material')
