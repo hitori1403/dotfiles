@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Value=1.0
+Type=Application
+Name=IDA Pro
+GenericName=IDA Pro
+Icon=/home/meo/.icons/ida/ida.png
+Exec="wine" "/home/meo/tools/idapro/ida.exe"
+Categories=Development;
+Path=/home/meo/tools/idapro
