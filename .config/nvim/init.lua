@@ -9,8 +9,8 @@ vim.opt.relativenumber = true
 vim.opt.showmode = false
 
 -- Tab size
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 
 -- Colorshcheme
 vim.opt.termguicolors = true

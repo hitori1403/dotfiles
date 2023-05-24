@@ -45,7 +45,7 @@ return require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
-			"hrsh7th/cmp-nvim-lsp",                          -- LSP source for nvim-cmp
+			"hrsh7th/cmp-nvim-lsp",                    -- LSP source for nvim-cmp
 			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }, -- Snippets source for nvim-cmp
 		},
 		config = [[require('config.cmp')]],
@@ -66,6 +66,15 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = [[require('config.null-ls')]],
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+
+
+	-- [[TREESITTER
+
+	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
@@ -74,19 +83,16 @@ return require("packer").startup(function(use)
 		config = [[require('config.treesitter')]],
 	})
 
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = [[require('config.null-ls')]],
-		requires = { "nvim-lua/plenary.nvim" },
-	})
-
 	-- auto tags
 	use {
 		'windwp/nvim-ts-autotag',
-		config = [[require('nvim-ts-autotag').setup()]]
+		requires = { "nvim-treesitter/nvim-treesitter" },
 	}
 
-	-- Fuzzy finder
+	--]]	
+
+	-- [[ TELESCOPE
+
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
@@ -100,11 +106,14 @@ return require("packer").startup(function(use)
 		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	}
 
+	-- ]]
+
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
 
+	-- async run
 	use { 'tpope/vim-dispatch', config = function()
 		require('config.dispatch')
 	end }

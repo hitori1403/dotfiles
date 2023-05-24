@@ -2,6 +2,7 @@ local runners = {
 	{ 'asm',        'as -o %:r.o % --32 && ld -o %:r %:r.o -m elf_i386 && ./%:r' },
 	{ 'c',          'gcc -Wall % -o %:r && ./%:r' },
 	{ 'cpp',        'g++ -Wall % -o %:r && ./%:r' },
+	{ 'go',         'go run %' },
 	{ 'java',       'javac % && java %:r' },
 	{ 'javascript', 'node %' },
 	{ 'php',        'php %' },
