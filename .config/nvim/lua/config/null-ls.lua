@@ -8,7 +8,7 @@ null_ls.setup({
 		}),
 
 		-- python
-		null_ls.builtins.diagnostics.pylint,
+		null_ls.builtins.diagnostics.flake8,
 		null_ls.builtins.formatting.yapf,
 		null_ls.builtins.formatting.isort,
 

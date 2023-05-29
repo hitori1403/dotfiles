@@ -1,6 +1,0 @@
-[MASTER]
-disable=
-	C0103,C0114,C0115,C0116,W0718
-
-good-names-rgxs=^[_a-z0-9]?$
-
