@@ -6,17 +6,31 @@ local runners = {
 	{ 'java',       'javac % && java %:r' },
 	{ 'javascript', 'node %' },
 	{ 'php',        'php %' },
-	{ 'python',     'python %' },
+	{ 'python', {
+		{ '<F9>',  'python %' },
+		{ '<F10>', 'python `cat .project`' }
+	}
+	},
 }
 
-for _, r in ipairs(runners) do
+local set_keymap = function(binding)
+	vim.keymap.set('n', binding[1], function()
+		vim.cmd.write()
+		vim.cmd.Start { binding[2] .. ';read' }
+	end)
+end
+
+for _, binding in ipairs(runners) do
 	vim.api.nvim_create_autocmd('FileType', {
-		pattern = r[1],
+		pattern = binding[1],
 		callback = function()
-			vim.keymap.set('n', '<F9>', function()
-				vim.cmd.write()
-				vim.cmd.Start { r[2] .. ';read' }
-			end)
+			if type(binding[2]) == "table" then
+				for _, r in ipairs(binding[2]) do
+					set_keymap(r)
+				end
+			else
+				set_keymap { '<F9>', binding[2] }
+			end
 		end
 	})
 end
