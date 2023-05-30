@@ -16,7 +16,7 @@ adjust_touchpad_rules() {
 	echo "Modifying $FILE"
 
 	sudo sed -i "s/user/$USER/g" $FILE
-	sudo sed -i "s|address|$DBUS_SESSION_BUS_ADDRESS|g" $FILE
+	sudo sed -i "s|address|$DBUS_SESSION_BUS_ADDRESS|g" $FILE  # Error: DBUS_SESSION_BUS_ADDRESS is empty when running in chroot
 }
 
 copy_config() {
