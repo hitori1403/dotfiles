@@ -8,9 +8,9 @@ local runners = {
 	{ 'php',        'php %' },
 	{ 'python', {
 		{ '<F9>',  'python %' },
-		{ '<F10>', 'python `cat .project`' }
+		{ '<F10>', '[[ -f `cat .project` ]] && python `cat .project`' }
 	}
-	},
+	}
 }
 
 local set_keymap = function(binding)
