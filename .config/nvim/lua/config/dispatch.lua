@@ -6,9 +6,10 @@ local runners = {
 	{ 'java',       'javac % && java %:r' },
 	{ 'javascript', 'node %' },
 	{ 'php',        'php %' },
+	{ 'ruby',       'ruby %' },
 	{ 'python', {
 		{ '<F9>',  'python %' },
-		{ '<F10>', '[[ -f `cat .project` ]] && python `cat .project`' }
+		{ '<F10>', '[[ -f .project ]] && python `cat .project`' }
 	}
 	}
 }

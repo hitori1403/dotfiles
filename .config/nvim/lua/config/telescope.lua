@@ -1,5 +1,8 @@
 local telescope = require("telescope")
 
+-- telescope-file-browser
+telescope.load_extension "file_browser"
+
 telescope.setup {
 	extensions = {
 		file_browser = {
@@ -8,9 +11,6 @@ telescope.setup {
 		}
 	}
 }
-
--- telescope-file-browser
-telescope.load_extension "file_browser"
 
 local builtin = require("telescope.builtin")
 local extensions = telescope.extensions

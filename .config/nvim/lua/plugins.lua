@@ -23,6 +23,9 @@ return require("packer").startup(function(use)
 		config = [[require('nvim-web-devicons').setup {}]],
 	})
 
+	-- vscode-like pictograms for neovim lsp completion items
+	use "onsails/lspkind.nvim"
+
 	-- Status line
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -71,8 +74,7 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
-
-	-- [[TREESITTER
+	-- [[ TREESITTER
 
 	use({
 		"nvim-treesitter/nvim-treesitter",

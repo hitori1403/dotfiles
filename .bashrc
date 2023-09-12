@@ -102,7 +102,7 @@ fi
 # Try to keep environment pollution down, EPA loves us.
 unset use_color sh
 
-export PATH=$PATH:~/.local/bin/
+export PATH=$PATH:~/.local/bin/:~/.local/share/gem/ruby/3.0.0/bin
 
 # Color for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"

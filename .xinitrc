@@ -6,7 +6,8 @@ XMODIFIERS=@im=fcitx \
 SDL_IM_MODULE=fcitx \
 QT_QPA_PLATFORMTHEME=qt6ct \
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' \
-XDG_CURRENT_DESKTOP=gnome
+XDG_CURRENT_DESKTOP=gnome \
+GROFF_NO_SGR=1
 
 # Update redshift location
 ~/.scripts/redshift_init &
