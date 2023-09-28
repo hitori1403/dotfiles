@@ -15,7 +15,7 @@ local build_keymaps = {
 	maven = function()
 		vim.keymap.set('n', '<F9>', function()
 			vim.cmd.write()
-			vim.cmd.Start { 'mvn package && java -jar target/*.jar' }
+			vim.cmd.Start { 'mvn spring-boot:run' }
 		end)
 	end,
 	gradle = function()
