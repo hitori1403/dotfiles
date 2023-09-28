@@ -40,17 +40,17 @@ local lspconfig = require("lspconfig")
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
-	'bashls',    -- Bash
-	"clangd",    -- C/C++
-	"gopls",     -- Go
-	"html",      -- HTML
-	"jdtls",     -- Java
-	"lemminx",   -- XML
+	'bashls',    	-- Bash
+	"clangd",    	-- C/C++
+	"gopls",     	-- Go
+	"html",      	-- HTML
 	"intelephense", -- PHP
-	"pyright",   -- Python
-	"lua_ls",    -- Lua
-	"tsserver",  -- JavaScript
-	"solargraph", -- Ruby
+	"jdtls",     	-- Java
+	"lemminx",   	-- XML
+	"lua_ls",    	-- Lua
+	"pyright",   	-- Python
+	"solargraph", 	-- Ruby
+	"tsserver",  	-- JavaScript
 }
 
 local lsp_flags = {

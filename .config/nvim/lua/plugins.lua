@@ -17,7 +17,8 @@ return require("packer").startup(function(use)
 	-- Colorscheme
 	use("sainnhe/gruvbox-material")
 
-	-- Icons
+	-- [[ ICONS
+
 	use({
 		"nvim-tree/nvim-web-devicons",
 		config = [[require('nvim-web-devicons').setup {}]],
@@ -25,6 +26,10 @@ return require("packer").startup(function(use)
 
 	-- vscode-like pictograms for neovim lsp completion items
 	use "onsails/lspkind.nvim"
+
+	-- ]]
+
+	-- [[ LINES
 
 	-- Status line
 	use({
@@ -41,10 +46,14 @@ return require("packer").startup(function(use)
 		config = [[require("bufferline").setup {}]],
 	})
 
-	-- Snippets plugin
+	-- ]]
+
+	-- [[ LSP
+
+	-- Snippets
 	use("L3MON4D3/LuaSnip")
 
-	-- Autocompletion plugin
+	-- Autocompletion
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -73,6 +82,8 @@ return require("packer").startup(function(use)
 		config = [[require('config.null-ls')]],
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+
+	-- ]]
 
 	-- [[ TREESITTER
 
@@ -116,9 +127,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- async run
-	use { 'tpope/vim-dispatch', config = function()
-		require('config.dispatch')
-	end }
+	use 'tpope/vim-dispatch'
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
