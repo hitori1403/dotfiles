@@ -83,6 +83,9 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
+	-- Java LSP
+	use 'mfussenegger/nvim-jdtls'
+
 	-- ]]
 
 	-- [[ TREESITTER
@@ -96,7 +99,7 @@ return require("packer").startup(function(use)
 		config = [[require('config.treesitter')]],
 	})
 
-	-- auto tags
+	-- Auto tags
 	use {
 		'windwp/nvim-ts-autotag',
 		requires = { "nvim-treesitter/nvim-treesitter" },
@@ -119,6 +122,8 @@ return require("packer").startup(function(use)
 		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	}
 
+	use { 'nvim-telescope/telescope-ui-select.nvim' }
+
 	-- ]]
 
 	use({
@@ -126,8 +131,9 @@ return require("packer").startup(function(use)
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
 
-	-- async run
+	-- Async run
 	use 'tpope/vim-dispatch'
+
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

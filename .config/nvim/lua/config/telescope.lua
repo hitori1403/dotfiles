@@ -1,19 +1,21 @@
 local telescope = require("telescope")
-
--- telescope-file-browser
-telescope.load_extension "file_browser"
+local builtin = require('telescope.builtin')
+local extensions = telescope.extensions
 
 telescope.setup {
 	extensions = {
 		file_browser = {
 			-- disables netrw and use telescope-file-browser in its place
 			hijack_netrw = true
+		},
+		["ui-select"] = {
+			require('telescope.themes').get_dropdown {}
 		}
 	}
 }
 
-local builtin = require("telescope.builtin")
-local extensions = telescope.extensions
+telescope.load_extension "file_browser"
+telescope.load_extension "ui-select"
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
