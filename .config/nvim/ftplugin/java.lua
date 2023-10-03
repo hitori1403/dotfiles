@@ -1,4 +1,5 @@
 local jdtls = require('jdtls')
+local toggleterm = require('toggleterm')
 
 -- [[ nvim-jdtls
 
@@ -65,13 +66,13 @@ local build_mappings = {
 	maven = function()
 		vim.keymap.set('n', '<F9>', function()
 			vim.cmd.write()
-			vim.cmd.Start { string.format('cd %s; mvn spring-boot:run', config.root_dir) }
+			toggleterm.exec(string.format('cd %s; mvn spring-boot:run', config.root_dir))
 		end)
 	end,
 	gradle = function()
 		vim.keymap.set('n', '<F9>', function()
 			vim.cmd.write()
-			vim.cmd.Start { string.format('cd %s; gradle bootRun', config.root_dir) }
+			toggleterm.exec(string.format('cd %s; gradle bootRun', config.root_dir))
 		end)
 	end
 }
@@ -89,7 +90,7 @@ end
 if not has_build_tool then
 	vim.keymap.set('n', '<F9>', function()
 		vim.cmd.write()
-		vim.cmd.Start { 'javac % && java %:r; read' }
+		toggleterm.exec(vim.fn.expandcmd('javac % && java %:r'))
 	end)
 end
 

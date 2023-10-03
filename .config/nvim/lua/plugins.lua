@@ -102,7 +102,19 @@ return require("packer").startup(function(use)
 	-- Auto tags
 	use {
 		'windwp/nvim-ts-autotag',
-		requires = { "nvim-treesitter/nvim-treesitter" },
+		requires = { "nvim-treesitter/nvim-treesitter" }
+	}
+
+	-- Comment
+	use {
+		'JoosepAlviste/nvim-ts-context-commentstring',
+		requires = { 'nvim-treesitter/nvim-treesitter' },
+		config = [[require('ts_context_commentstring').setup {}]]
+	}
+
+	use {
+		'numToStr/Comment.nvim',
+		config = [[require('config.comment')]]
 	}
 
 	--]]	
@@ -131,9 +143,7 @@ return require("packer").startup(function(use)
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
 
-	-- Async run
-	use 'tpope/vim-dispatch'
-
+	use { "akinsho/toggleterm.nvim", tag = '*', config = [[require('config.toggleterm')]] }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

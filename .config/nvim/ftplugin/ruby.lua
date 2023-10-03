@@ -1,4 +1,6 @@
+local toggleterm = require('toggleterm')
+
 vim.keymap.set('n', '<F9>', function()
 	vim.cmd.write()
-	vim.cmd.Start { 'ruby %; read' }
+	toggleterm.exec(vim.fn.expandcmd('ruby %'))
 end)

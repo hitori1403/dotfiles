@@ -42,6 +42,7 @@ local lspconfig = require("lspconfig")
 local servers = {
 	'bashls',    -- Bash
 	"clangd",    -- C/C++
+	'cssls',     -- CSS
 	"gopls",     -- Go
 	"html",      -- HTML
 	"intelephense", -- PHP
