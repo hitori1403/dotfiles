@@ -77,14 +77,15 @@ return require("packer").startup(function(use)
 		config = [[require('config.lspconfig')]],
 	})
 
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = [[require('config.null-ls')]],
-		requires = { "nvim-lua/plenary.nvim" },
-	})
-
 	-- Java LSP
 	use 'mfussenegger/nvim-jdtls'
+
+	-- Collection of linters and formatters
+	use {
+		'creativenull/efmls-configs-nvim',
+		tag = 'v1.*', -- tag is optional, but recommended
+		requires = { 'neovim/nvim-lspconfig' },
+	}
 
 	-- ]]
 
