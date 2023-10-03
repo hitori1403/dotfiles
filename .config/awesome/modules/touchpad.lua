@@ -1,15 +1,5 @@
-local awful = require('awful')
-local naughty = require('naughty')
-local beautiful = require('beautiful')
-
-local id
-local notify = function(text)
-	id = naughty.notify({
-		text = text,
-		icon = beautiful.get_random_waifu(),
-		replaces_id = id
-	}).id
-end
+local awful = require 'awful'
+local notify = require 'utils.notify'
 
 -- Control behavior of touchpad
 -- @param {string} mode - Value can be 'enable', 'disable', 'toggle' or 'auto'

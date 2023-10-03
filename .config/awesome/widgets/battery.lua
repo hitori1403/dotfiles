@@ -1,19 +1,8 @@
 local os = require 'os'
 local wibox = require 'wibox'
 local awful = require 'awful'
-
-local naughty = require 'naughty'
 local beautiful = require 'beautiful'
-
-local id
-
-local notify = function(text)
-	id = naughty.notify({
-		text = text,
-		icon = beautiful.get_random_waifu(),
-		replaces_id = id
-	}).id
-end
+local notify = require 'utils.notify'
 
 local ac_online, bat_perc
 local hook_notify = true

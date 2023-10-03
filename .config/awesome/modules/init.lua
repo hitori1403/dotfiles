@@ -1,3 +1,4 @@
-require('modules.volume')
-require('modules.backlight')
-require('modules.touchpad')
+require 'modules.backlight'
+require 'modules.powerprofile'
+require 'modules.touchpad'
+require 'modules.volume'
