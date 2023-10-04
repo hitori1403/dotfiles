@@ -1,6 +1,8 @@
 local awful = require 'awful'
 local notify = require 'utils.notify'
 
+notify = notify:new()
+
 -- Control behavior of touchpad
 -- @param {string} mode - Value can be 'enable', 'disable', 'toggle' or 'auto'
 
@@ -10,10 +12,10 @@ local touchpad = function(value)
 	local control_touchpad = function(device_id, mode)
 		if mode == 0 then
 			awful.spawn(string.format('xinput disable %s', device_id))
-			notify('Touchpad is now disable')
+			notify:send('Touchpad is now disable')
 		else
 			awful.spawn(string.format('xinput enable %s', device_id))
-			notify('Touchpad is now enable')
+			notify:send('Touchpad is now enable')
 		end
 	end
 

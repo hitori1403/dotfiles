@@ -4,6 +4,8 @@ local awful = require 'awful'
 local beautiful = require 'beautiful'
 local notify = require 'utils.notify'
 
+notify = notify:new()
+
 local ac_online, bat_perc
 local hook_notify = true
 local last_notify_time = os.time()
@@ -26,9 +28,9 @@ awesome.connect_signal('battery::charger', function(online)
 	ac_online = online
 
 	if online then
-		notify('AC adapter is connected!')
+		notify:send('AC adapter is connected!')
 	else
-		notify('AC adapter is disconnected!')
+		notify:send('AC adapter is disconnected!')
 	end
 
 	if bat_perc then
@@ -44,7 +46,7 @@ awesome.connect_signal('battery::battery', function(perc)
 		widget.icon:set_markup('\u{e1a3}')
 	else
 		if perc <= 10 and (os.difftime(os.time(), last_notify_time) >= 300 or hook_notify) then
-			notify("Battery low. Plug the cable!")
+			notify:send("Battery low. Plug the cable!")
 
 			last_notify_time = os.time()
 			hook_notify = false

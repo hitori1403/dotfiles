@@ -1,6 +1,8 @@
 local awful = require 'awful'
 local notify = require 'utils.notify'
 
+notify = notify:new()
+
 awesome.connect_signal('modules::volume', function()
 	awful.spawn.easy_async('pactl list sinks', function(stdout)
 		if stdout then
@@ -12,9 +14,9 @@ awesome.connect_signal('modules::volume', function()
 				state = '[On]'
 			end
 
-			notify(state .. ' ' .. stdout:match('Volume: front%-left: %d+ /%s+(%d+%%)'))
+			notify:send(state .. ' ' .. stdout:match('Volume: front%-left: %d+ /%s+(%d+%%)'), 'VOLUME')
 		else
-			notify('Not responding!')
+			notify:send('Not responding!')
 		end
 	end)
 end)
