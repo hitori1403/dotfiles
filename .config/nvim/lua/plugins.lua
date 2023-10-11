@@ -41,7 +41,7 @@ return require("packer").startup(function(use)
 	-- Buffer line
 	use({
 		"akinsho/bufferline.nvim",
-		tag = "v3.*",
+		tag = "*",
 		requires = "nvim-tree/nvim-web-devicons",
 		config = [[require("bufferline").setup {}]],
 	})
@@ -83,7 +83,7 @@ return require("packer").startup(function(use)
 	-- Collection of linters and formatters
 	use {
 		'creativenull/efmls-configs-nvim',
-		tag = 'v1.*', -- tag is optional, but recommended
+		tag = '*', -- tag is optional, but recommended
 		requires = { 'neovim/nvim-lspconfig' },
 	}
 
@@ -124,8 +124,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-		-- or                            , branch = '0.1.x',
+		tag = '*',
 		requires = { { "nvim-lua/plenary.nvim" } },
 		config = [[require('config.telescope')]]
 	})
