@@ -6,8 +6,14 @@ handle_acpi_events() {
 	echo "Modifying $FILE"
 
 	# Suspend when power key is pressed
-	sudo sed -i '/#HandlePowerKey=/s/poweroff/suspend/g' $FILE
-	sudo sed -i '/#HandlePowerKey=/s/^#//g' $FILE
+	sudo sed -i '/^#HandlePowerKey=/s/^#//g' $FILE
+	sudo sed -i '/^HandlePowerKey=/s/poweroff/suspend/g' $FILE
+
+	# Automatic suspend
+	sudo sed -i '/^#IdleAction=/s/^#//g' $FILE
+	sudo sed -i '/^IdleAction=/s/ignore/suspend/g' $FILE
+
+	sudo sed -i '/^#IdleActionSec=/s/^#//g' $FILE
 }
 
 adjust_touchpad_rules() {
@@ -16,7 +22,7 @@ adjust_touchpad_rules() {
 	echo "Modifying $FILE"
 
 	sudo sed -i "s/user/$USER/g" $FILE
-	sudo sed -i "s|address|$DBUS_SESSION_BUS_ADDRESS|g" $FILE  # Error: DBUS_SESSION_BUS_ADDRESS is empty when running in chroot
+	sudo sed -i "s|address|$DBUS_SESSION_BUS_ADDRESS|g" $FILE # Error: DBUS_SESSION_BUS_ADDRESS is empty when running in chroot
 }
 
 copy_config() {
