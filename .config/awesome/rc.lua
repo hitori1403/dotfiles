@@ -449,7 +449,7 @@ globalkeys = gears.table.join(
 	-- File manager
 	awful.key({ modkey }, 'e',
 		function()
-			awful.spawn("pcmanfm")
+			awful.spawn("thunar")
 		end,
 		{ description = "file manager", group = 'system' }
 	)
