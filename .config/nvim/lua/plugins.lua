@@ -110,7 +110,11 @@ return require("packer").startup(function(use)
 	use {
 		'JoosepAlviste/nvim-ts-context-commentstring',
 		requires = { 'nvim-treesitter/nvim-treesitter' },
-		config = [[require('ts_context_commentstring').setup {}]]
+		config = function()
+			require('ts_context_commentstring').setup {
+				enable_autocmd = false
+			}
+		end
 	}
 
 	use {

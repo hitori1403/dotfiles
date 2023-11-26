@@ -82,17 +82,15 @@ lspconfig.tsserver.setup {
 -- [[ efm-langserver ]]
 
 -- Register linters and formatters per language
-local black = require('efmls-configs.formatters.black')
-local isort = require('efmls-configs.formatters.isort')
 local prettier = require('efmls-configs.formatters.prettier')
 local shfmt = require('efmls-configs.formatters.shfmt')
 
 local languages = {
 	bash = { shfmt },
 	javascript = { prettier },
-	python = { black, isort },
 	sh = { shfmt },
 	typescript = { prettier },
+	yaml = { prettier }
 }
 
 local efmls_config = {
