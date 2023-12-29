@@ -32,11 +32,13 @@ return {
 
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		lazy = true
 	},
 
 	{
 		'nvim-telescope/telescope-ui-select.nvim',
-		dependencies = { "nvim-telescope/telescope.nvim" }
+		dependencies = { "nvim-telescope/telescope.nvim" },
+		lazy = true
 	}
 }

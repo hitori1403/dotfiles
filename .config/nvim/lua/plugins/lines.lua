@@ -6,5 +6,10 @@ return {
 			theme = "gruvbox-material"
 		}
 	},
-	{ 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons', opts = {} }
+	{
+		'akinsho/bufferline.nvim',
+		version = "*",
+		dependencies = 'nvim-tree/nvim-web-devicons',
+		opts = {}
+	}
 }

@@ -122,20 +122,24 @@ return {
 		'creativenull/efmls-configs-nvim',
 		version = '*', -- tag is optional, but recommended
 		dependencies = { 'neovim/nvim-lspconfig' },
+		lazy = true
 	},
 
 	-- Java LSP
 	{
 		'mfussenegger/nvim-jdtls',
 		dependencies = { 'neovim/nvim-lspconfig' },
+		lazy = true
 	},
 
 	-- Rust LSP
 	{
 		'simrat39/rust-tools.nvim',
+		ft = { 'rust' },
 		opts = {
 			server = {
 				on_attach = function(_, bufnr)
+					local rt = require("rust-tools")
 					-- Hover actions
 					vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
 					-- Code action groups

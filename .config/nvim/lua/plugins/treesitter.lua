@@ -65,13 +65,15 @@ return {
 	-- Auto tags
 	{
 		'windwp/nvim-ts-autotag',
-		dependencies = { "nvim-treesitter/nvim-treesitter" }
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		lazy = true
 	},
 
 	-- [[ Comment
 	{
 		'JoosepAlviste/nvim-ts-context-commentstring',
 		dependencies = { 'nvim-treesitter/nvim-treesitter' },
+		lazy = true,
 		opts = {
 			enable_autocmd = false,
 		}
