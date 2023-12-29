@@ -1,8 +1,12 @@
 # dotfiles
-my personal dotfiles :)
+my personal dotfiles
 
 ## Desktop
-![](preview.png)
+![](images/preview.png)
+
+## Neovim
+
+![](images/neovim.png)
 
 ## Lock screen
-![](lockscreen.png)
+![](images/lockscreen.png)
