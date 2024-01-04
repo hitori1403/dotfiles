@@ -3,7 +3,8 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",                              -- LSP source for nvim-cmp
 		{ "saadparwaiz1/cmp_luasnip", dependencies = "nvim-cmp" }, -- Snippets source for nvim-cmp
-		{ "L3MON4D3/LuaSnip" }
+		"L3MON4D3/LuaSnip",
+		"hrsh7th/cmp-path"                                   -- Path completion
 	},
 	config = function()
 		local luasnip = require("luasnip")
@@ -46,6 +47,7 @@ return {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
+				{ name = "path" }
 			},
 			formatting = {
 				format = lspkind.cmp_format({
