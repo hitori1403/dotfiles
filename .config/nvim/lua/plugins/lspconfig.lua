@@ -132,8 +132,11 @@ return {
 		lazy = true
 	},
 
+	-- Rust LSP
 	{
 		'mrcjkb/rustaceanvim',
 		ft = { 'rust' },
 	},
+
+
 }
