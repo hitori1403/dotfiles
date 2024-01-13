@@ -9,17 +9,14 @@ _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' \
 XDG_CURRENT_DESKTOP=gnome \
 GROFF_NO_SGR=1
 
-# Update redshift location
-~/.scripts/redshift_init &
-
 # Redshift
-redshift &
+~/.scripts/redshift_init &
 
 # Auto lock screen
 xss-lock ~/.scripts/lock &
 
 # Vietnamese input method
-fcitx &
+fcitx5 &
 
 # Network manager applet
 nm-applet &

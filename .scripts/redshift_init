@@ -8,7 +8,7 @@ LONGITUDE=$(echo $GEOCLUE | cut -d ':' -f 2)
 
 [ ! -d ~/.config/redshift ] && mkdir -p ~/.config/redshift
 
-cat << EOF > ~/.config/redshift/redshift.conf
+cat <<EOF >~/.config/redshift/redshift.conf
 [redshift]
 location-provider=manual
 
@@ -16,3 +16,5 @@ location-provider=manual
 lat=$LATITUDE
 lon=$LONGITUDE
 EOF
+
+redshift &
