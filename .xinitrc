@@ -1,6 +1,5 @@
 # Environment variables
-export EDITOR=/usr/bin/nvim \
-GTK_IM_MODULE=fcitx \
+export GTK_IM_MODULE=fcitx \
 QT_IM_MODULE=fcitx \
 XMODIFIERS=@im=fcitx \
 SDL_IM_MODULE=fcitx \
@@ -16,19 +15,19 @@ GROFF_NO_SGR=1
 xss-lock ~/.scripts/lock &
 
 # Vietnamese input method
-fcitx5 &
+fcitx &
 
 # Network manager applet
 nm-applet &
-
-# Load .Xresources config
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
 # gnome-keyring
 [[ -f /etc/X11/xinit/xinitrc.d/50-systemd-user.sh ]] && . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # polkit-gnome
 [[ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]] && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Load .Xresources config
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # Run windows manager
 exec awesome
