@@ -13,7 +13,7 @@ i3lock --nofork \
     --pass-volume-keys \
     \
 	--fill \
-    --image=/home/meo/pics/wallpapers/wallhaven-m95v79.png \
+    --image=/home/hitori/pics/wallpapers/wallhaven-m95v79.png \
 	\
     --indicator \
     --radius=30 \

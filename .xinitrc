@@ -9,10 +9,10 @@ XDG_CURRENT_DESKTOP=gnome \
 GROFF_NO_SGR=1
 
 # Redshift
-~/.scripts/redshift_init &
+~/.local/bin/redshift_init &
 
 # Auto lock screen
-xss-lock ~/.scripts/lock &
+xss-lock ~/.local/bin/lock &
 
 # Vietnamese input method
 fcitx &
