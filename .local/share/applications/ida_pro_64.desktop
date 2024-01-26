@@ -2,9 +2,9 @@
 Encoding=UTF-8
 Value=1.0
 Type=Application
-Name=IDA Pro (64 bits)
-GenericName=IDA Pro (64 bits)
-Icon=/home/meo/.icons/ida/ida64.png
-Exec="wine" "/home/meo/tools/ida_pro/ida64.exe"
+Name=IDA Pro (x64)
+GenericName=IDA Pro (x64)
+Icon=/home/hitori/.icons/ida/ida64.png
+Exec="wine" "/home/hitori/tools/ida_pro/ida64.exe"
 Categories=Development;
-Path=/home/meo/tools/ida_pro
+Path=/home/hitori/tools/ida_pro
