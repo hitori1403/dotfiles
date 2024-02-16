@@ -83,6 +83,14 @@ return {
 				})
 			end
 
+
+			lspconfig.omnisharp.setup {
+				on_attach = on_attach,
+				flags = lsp_flags,
+				capabilities = capabilities,
+				cmd = { 'dotnet', '/usr/lib/omnisharp/OmniSharp.dll' }
+			}
+
 			lspconfig.tsserver.setup {
 				on_attach = on_attach,
 				flags = lsp_flags,
