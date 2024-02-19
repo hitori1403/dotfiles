@@ -66,17 +66,9 @@ return {
 			-- Add additional capabilities supported by nvim-cmp
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local on_attach = function(client, bufnr)
-				-- Shows current code context in statusline
-
-				if client.server_capabilities.documentSymbolProvider then
-					require('nvim-navic').attach(client, bufnr)
-				end
-			end
-
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
-					on_attach = on_attach,
+					-- on_attach = on_attach,
 					flags = lsp_flags,
 					-- single_file_support = true,
 					capabilities = capabilities,
@@ -85,14 +77,14 @@ return {
 
 
 			lspconfig.omnisharp.setup {
-				on_attach = on_attach,
+				-- on_attach = on_attach,
 				flags = lsp_flags,
 				capabilities = capabilities,
 				cmd = { 'dotnet', '/usr/lib/omnisharp/OmniSharp.dll' }
 			}
 
 			lspconfig.tsserver.setup {
-				on_attach = on_attach,
+				-- on_attach = on_attach,
 				flags = lsp_flags,
 				capabilities = capabilities,
 				init_options = {
@@ -142,13 +134,6 @@ return {
 		version = '*', -- tag is optional, but recommended
 		dependencies = { 'neovim/nvim-lspconfig' },
 		lazy = true
-	},
-
-	-- Shows current code context in statusline
-	{
-		"SmiteshP/nvim-navic",
-		dependencies = { "neovim/nvim-lspconfig" },
-		opts = {}
 	},
 
 	-- Java LSP
