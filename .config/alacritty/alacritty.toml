@@ -24,4 +24,4 @@ mods = "Control|Shift"
 
 [window.padding]
 x = 5
-y = 0
+y = 5
