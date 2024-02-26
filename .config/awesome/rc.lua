@@ -215,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
 			s.mypromptbox,
 		},
 		s.mytasklist, -- Middle widget
-		{             -- Right widgets
+		{       -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(),
 			battery,
@@ -407,7 +407,7 @@ globalkeys = gears.table.join(
 	),
 	awful.key({ "Control" }, "Print",
 		function()
-			awful.spawn.with_shell("maim -su /tmp/$(date +%F.%T).png")
+			awful.spawn.with_shell("maim -su /tmp/$(date +%F.%T).jpg")
 		end,
 		{ description = "save selected region to file", group = "screenshot" }
 	),
@@ -420,7 +420,7 @@ globalkeys = gears.table.join(
 	),
 	awful.key({ "Control", "Shift" }, "Print",
 		function()
-			awful.spawn.with_shell("maim -ui $(xdotool getactivewindow) /tmp/$(date +%F.%T).png")
+			awful.spawn.with_shell("maim -ui $(xdotool getactivewindow) /tmp/$(date +%F.%T).jpg")
 		end,
 		{ description = "save selected window to file", group = "screenshot" }
 	),
@@ -433,7 +433,7 @@ globalkeys = gears.table.join(
 	),
 	awful.key({ "Ctrl", "Mod1" }, "Print",
 		function()
-			awful.spawn.with_shell("maim -u /tmp/$(date +%y-%m-%d.%T).png")
+			awful.spawn.with_shell("maim -u /tmp/$(date +%y-%m-%d.%T).jpg")
 		end,
 		{ description = "save fullscreen to file", group = "screenshot" }
 	),
@@ -449,7 +449,7 @@ globalkeys = gears.table.join(
 	-- File manager
 	awful.key({ modkey }, 'e',
 		function()
-			awful.spawn("pcmanfm")
+			awful.spawn("thunar")
 		end,
 		{ description = "file manager", group = 'system' }
 	)
@@ -613,7 +613,7 @@ awful.rules.rules = {
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
 				"ConfigManager", -- Thunderbird's about:config.
-				"pop-up",  -- e.g. Google Chrome's (detached) Developer Tools.
+				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			}
 		},
 		properties = { floating = true }
