@@ -7,42 +7,7 @@ return {
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				-- A list of parser names, or "all"
-				ensure_installed = {
-					"bash",
-					"c",
-					"c_sharp",
-					"cmake",
-					"cpp",
-					"css",
-					"csv",
-					"dockerfile",
-					"go",
-					"gomod",
-					"gosum",
-					"gowork",
-					"html",
-					"ini",
-					"java",
-					"javascript",
-					"json",
-					"lua",
-					"markdown",
-					'passwd',
-					"perl",
-					"php",
-					"python",
-					"regex",
-					"ruby",
-					"rust",
-					"sql",
-					"toml",
-					"typescript",
-					"vim",
-					"vimdoc",
-					"xml",
-					"yaml",
-				},
-
+				ensure_installed = "all",
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,
 
@@ -67,6 +32,12 @@ return {
 		'windwp/nvim-ts-autotag',
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		-- lazy = true
+	},
+
+	-- Show code context
+	{
+		'nvim-treesitter/nvim-treesitter-context',
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 
 	-- [[ Comment
