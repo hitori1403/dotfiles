@@ -2,12 +2,13 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+		"hrsh7th/cmp-path",   -- Path completion
+		"hrsh7th/cmp-buffer",
 		"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
 		{
 			"L3MON4D3/LuaSnip",
 			run = "make install_jsregexp"
 		},
-		"hrsh7th/cmp-path" -- Path completion
 	},
 	config = function()
 		local has_words_before = function()
@@ -61,9 +62,8 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "path" }
-			}, {
-				{ name = 'buffer' }
+				{ name = "path" },
+				{ name = 'buffer' },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
@@ -71,6 +71,17 @@ return {
 					maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 					ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 				})
+			},
+			completion = { -- fix endless html closing tag completion
+				get_trigger_characters = function(trigger_characters)
+					local new_trigger_characters = {}
+					for _, char in ipairs(trigger_characters) do
+						if char ~= '>' then
+							table.insert(new_trigger_characters, char)
+						end
+					end
+					return new_trigger_characters
+				end
 			}
 		})
 	end
