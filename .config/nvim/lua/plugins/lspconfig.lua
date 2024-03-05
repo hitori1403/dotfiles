@@ -93,47 +93,7 @@ return {
 					}
 				}
 			}
-
-			-- [[ efm-langserver ]]
-
-			-- Register linters and formatters per language
-			local prettier = require('efmls-configs.formatters.prettier')
-			local shfmt = require('efmls-configs.formatters.shfmt')
-
-			local languages = {
-				bash = { shfmt },
-				javascript = { prettier },
-				sh = { shfmt },
-				typescript = { prettier },
-				yaml = { prettier }
-			}
-
-			local efmls_config = {
-				filetypes = vim.tbl_keys(languages),
-				settings = {
-					rootMarkers = { '.git/' },
-					languages = languages,
-				},
-				init_options = {
-					documentFormatting = true,
-					documentRangeFormatting = true,
-				},
-			}
-
-			lspconfig.efm.setup(vim.tbl_extend('force', efmls_config, {
-				-- Pass your custom lsp config below like on_attach and capabilities
-				on_attach = on_attach,
-				flags = lsp_flags,
-				capabilities = capabilities,
-			}))
 		end
-	},
-
-	{
-		'creativenull/efmls-configs-nvim',
-		version = '*', -- tag is optional, but recommended
-		dependencies = { 'neovim/nvim-lspconfig' },
-		lazy = true
 	},
 
 	-- Java LSP
