@@ -22,6 +22,10 @@ return {
 				highlight = {
 					enable = true,
 					additional_vim_regex_highlighting = false,
+				},
+
+				indent = {
+					enable = true
 				}
 			})
 		end
@@ -30,7 +34,6 @@ return {
 	{
 		'windwp/nvim-ts-autotag',
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		-- lazy = true
 	},
 	-- Show code context
 	{
