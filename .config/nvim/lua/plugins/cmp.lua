@@ -3,8 +3,11 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
 		"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
-		"L3MON4D3/LuaSnip",
-		"hrsh7th/cmp-path"    -- Path completion
+		{
+			"L3MON4D3/LuaSnip",
+			run = "make install_jsregexp"
+		},
+		"hrsh7th/cmp-path" -- Path completion
 	},
 	config = function()
 		local has_words_before = function()
@@ -15,8 +18,8 @@ return {
 
 		local luasnip = require("luasnip")
 		local lspkind = require('lspkind')
-
 		local cmp = require("cmp")
+
 		cmp.setup({
 			snippet = {
 				expand = function(args)

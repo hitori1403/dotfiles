@@ -75,7 +75,6 @@ return {
 				})
 			end
 
-
 			lspconfig.omnisharp.setup {
 				-- on_attach = on_attach,
 				flags = lsp_flags,
@@ -95,14 +94,12 @@ return {
 			}
 		end
 	},
-
 	-- Java LSP
 	{
 		'mfussenegger/nvim-jdtls',
 		dependencies = { 'neovim/nvim-lspconfig' },
 		lazy = true
 	},
-
 	-- Rust LSP
 	{
 		'mrcjkb/rustaceanvim',

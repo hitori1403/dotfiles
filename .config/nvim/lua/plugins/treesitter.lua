@@ -26,20 +26,17 @@ return {
 			})
 		end
 	},
-
 	-- Auto tags
 	{
 		'windwp/nvim-ts-autotag',
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		-- lazy = true
 	},
-
 	-- Show code context
 	{
 		'nvim-treesitter/nvim-treesitter-context',
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
-
 	-- [[ Comment
 	{
 		'JoosepAlviste/nvim-ts-context-commentstring',
@@ -58,6 +55,5 @@ return {
 			}
 		end
 	}
-
 	-- ]]
 }
