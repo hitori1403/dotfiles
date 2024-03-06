@@ -31,15 +31,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 -- Colorshcheme
-vim.opt.termguicolors = true
 vim.opt.background = "dark"
-
-vim.g.gruvbox_material_enable_bold = 1
-vim.g.gruvbox_material_enable_italic = 1
-vim.g.gruvbox_material_background = "hard"
-vim.g.gruvbox_material_better_performance = 1
-
-vim.cmd.colorscheme('gruvbox-material')
+vim.opt.termguicolors = true
 
 -- Cause all splits to happen below
 vim.opt.splitbelow = true

@@ -44,6 +44,7 @@ return {
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 			local servers = {
+				'asm_lsp',
 				'bashls', -- Bash
 				"clangd", -- C/C++
 				'cssls', -- CSS

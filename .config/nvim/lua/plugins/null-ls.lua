@@ -8,6 +8,9 @@ return {
 
 		return {
 			sources = {
+				null_ls.builtins.formatting.asmfmt.with {
+					filetypes = { 'asm', 'nasm' }
+				},
 				null_ls.builtins.formatting.shfmt
 			}
 		}
