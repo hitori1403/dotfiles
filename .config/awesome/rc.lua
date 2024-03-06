@@ -407,7 +407,7 @@ globalkeys = gears.table.join(
 	),
 	awful.key({ "Control" }, "Print",
 		function()
-			awful.spawn.with_shell("maim -su /tmp/$(date +%F.%T).jpg")
+			awful.spawn.with_shell("maim -su /tmp/$(date +%F.%T).png")
 		end,
 		{ description = "save selected region to file", group = "screenshot" }
 	),
@@ -420,7 +420,7 @@ globalkeys = gears.table.join(
 	),
 	awful.key({ "Control", "Shift" }, "Print",
 		function()
-			awful.spawn.with_shell("maim -ui $(xdotool getactivewindow) /tmp/$(date +%F.%T).jpg")
+			awful.spawn.with_shell("maim -ui $(xdotool getactivewindow) /tmp/$(date +%F.%T).png")
 		end,
 		{ description = "save selected window to file", group = "screenshot" }
 	),
@@ -433,7 +433,7 @@ globalkeys = gears.table.join(
 	),
 	awful.key({ "Ctrl", "Mod1" }, "Print",
 		function()
-			awful.spawn.with_shell("maim -u /tmp/$(date +%y-%m-%d.%T).jpg")
+			awful.spawn.with_shell("maim -u /tmp/$(date +%y-%m-%d.%T).png")
 		end,
 		{ description = "save fullscreen to file", group = "screenshot" }
 	),
