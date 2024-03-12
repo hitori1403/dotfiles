@@ -3,7 +3,7 @@ export GTK_IM_MODULE=fcitx \
 QT_IM_MODULE=fcitx \
 XMODIFIERS=@im=fcitx \
 SDL_IM_MODULE=fcitx \
-QT_QPA_PLATFORMTHEME=qt6ct \
+QT_QPA_PLATFORMTHEME=xdgdesktopportal \
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' \
 XDG_CURRENT_DESKTOP=gnome \
 GROFF_NO_SGR=1
