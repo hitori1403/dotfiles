@@ -11,6 +11,8 @@ return {
 				null_ls.builtins.formatting.asmfmt.with {
 					filetypes = { 'asm', 'nasm' }
 				},
+				-- null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.phpcsfixer,
 				null_ls.builtins.formatting.shfmt
 			}
 		}

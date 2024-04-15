@@ -45,18 +45,19 @@ return {
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 			local servers = {
 				'asm_lsp',
-				'bashls', -- Bash
-				"clangd", -- C/C++
-				'cssls', -- CSS
-				"gopls", -- Go
-				"html", -- HTML
-				"intelephense", -- PHP
-				"lemminx", -- XML
-				"lua_ls", -- Lua
-				"pyright", -- Python
-				"ruff_lsp", -- Python linter
-				"solargraph", -- Ruby
-				"tsserver", -- JavaScript
+				'bashls',          -- Bash
+				"clangd",          -- C/C++
+				'cssls',           -- CSS
+				"gopls",           -- Go
+				"html",            -- HTML
+				"phpactor",        -- PHP
+				"lemminx",         -- XML
+				"lua_ls",          -- Lua
+				"pylsp",         -- Python
+				"ruff_lsp",        -- Python linter
+				"solidity_ls_nomicfoundation", -- Solidity
+				"solargraph",      -- Ruby
+				"tsserver",        -- JavaScript
 			}
 
 			local lsp_flags = {

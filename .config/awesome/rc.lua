@@ -433,7 +433,7 @@ globalkeys = gears.table.join(
 	),
 	awful.key({ "Ctrl", "Mod1" }, "Print",
 		function()
-			awful.spawn.with_shell("maim -u /tmp/$(date +%y-%m-%d.%T).png")
+			awful.spawn.with_shell("maim -u /tmp/$(date +%F.%T).png")
 		end,
 		{ description = "save fullscreen to file", group = "screenshot" }
 	),

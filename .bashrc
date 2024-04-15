@@ -104,6 +104,9 @@ unset use_color sh
 
 export PATH=$PATH:~/.local/bin:~/.cargo/bin:~/.local/share/gem/ruby/3.0.0/bin
 
+# IDAPython modules
+export PYTHONPATH=~/tools/ida_pro/python/3
+
 # Color for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
