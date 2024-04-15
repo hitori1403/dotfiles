@@ -111,11 +111,16 @@ export PYTHONPATH=~/tools/ida_pro/python/3
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # dotfiles
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-dotfiles config status.showUntrackedFiles no
+if [ -d "$HOME/.dotfiles" ]; then
+	dotfiles_cmd="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+	alias dotfiles=$dotfiles_cmd
 
-source /usr/share/bash-completion/completions/git
-__git_complete dotfiles __git_main
+	$dotfiles_cmd config status.showUntrackedFiles no
+
+	source /usr/share/bash-completion/completions/git
+	__git_complete dotfiles __git_main
+
+fi
 
 # ASLR
 alias 'aslr_off'='echo 0 | sudo tee /proc/sys/kernel/randomize_va_space'
