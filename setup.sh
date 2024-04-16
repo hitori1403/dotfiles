@@ -27,7 +27,7 @@ enable_multilib() {
 	FILE='/etc/pacman.conf'
 
 	echo 'Enable multilib'
-	sudo sed -i 'N;/^#\[multilib-testing]/s/#//g' $FILE
+	sudo sed -i '/^#\[multilib]/s/#//g' $FILE
 }
 
 copy_config
