@@ -13,7 +13,11 @@ GROFF_NO_SGR=1
 
 # Auto lock screen
 xset s 600 5
-XSECURELOCK_SAVER=~/.local/bin/saver_image xss-lock xsecurelock &
+
+XSECURELOCK_SAVER=~/.local/bin/saver_image \
+XSECURELOCK_SHOW_KEYBOARD_LAYOUT=0 \
+XSECURELOCK_SHOW_DATETIME=1 \
+xss-lock xsecurelock &
 
 # Vietnamese input method
 fcitx &
