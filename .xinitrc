@@ -12,7 +12,8 @@ GROFF_NO_SGR=1
 ~/.local/bin/redshift_init &
 
 # Auto lock screen
-xss-lock ~/.local/bin/lock &
+xset s 600 5
+XSECURELOCK_SAVER=~/.local/bin/saver_image xss-lock xsecurelock &
 
 # Vietnamese input method
 fcitx &

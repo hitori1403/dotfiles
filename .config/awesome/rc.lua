@@ -441,7 +441,7 @@ globalkeys = gears.table.join(
 	-- Lock screen
 	awful.key({ "Mod4", "Mod1" }, "l",
 		function()
-			awful.spawn("loginctl lock-session")
+			awful.spawn("xset s activate")
 		end,
 		{ description = "lock screen", group = "system" }
 	),
