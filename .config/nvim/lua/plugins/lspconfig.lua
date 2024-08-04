@@ -49,15 +49,15 @@ return {
 				"clangd",          -- C/C++
 				'cssls',           -- CSS
 				"gopls",           -- Go
-				"html",            -- HTML
-				"phpactor",        -- PHP
+				"intelephense",    -- PHP
 				"lemminx",         -- XML
 				"lua_ls",          -- Lua
-				"pylsp",         -- Python
-				"ruff_lsp",        -- Python linter
+				"pylsp",           -- Python
+				"ruff",            -- Python linter
 				"solidity_ls_nomicfoundation", -- Solidity
 				"solargraph",      -- Ruby
 				"tsserver",        -- JavaScript
+				"yamlls",          -- YAML
 			}
 
 			local lsp_flags = {
@@ -76,6 +76,13 @@ return {
 					capabilities = capabilities,
 				})
 			end
+
+			local html_capabilities = vim.lsp.protocol.make_client_capabilities()
+			html_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+			lspconfig.html.setup {
+				capabilities = html_capabilities,
+			}
 
 			lspconfig.omnisharp.setup {
 				-- on_attach = on_attach,

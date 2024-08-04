@@ -35,6 +35,7 @@ return {
 					"java",
 					"javascript",
 					"json",
+					"linkerscript",
 					"lua",
 					"luap",
 					"markdown",
@@ -72,6 +73,11 @@ return {
 				auto_install = true,
 
 				autotag = {
+					enable = true
+				},
+
+				-- Needed because treesitter highlight turns off autoindent for php files
+				indent = {
 					enable = true
 				},
 

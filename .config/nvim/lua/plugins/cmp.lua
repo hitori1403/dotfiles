@@ -2,8 +2,9 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
-		"hrsh7th/cmp-path",   -- Path completion
+		"hrsh7th/cmp-path", -- Path completion
 		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
 		{
 			"L3MON4D3/LuaSnip",
@@ -68,6 +69,7 @@ return {
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = 'buffer' },
+				{ name = 'nvim_lsp_signature_help' },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
