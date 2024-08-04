@@ -6,7 +6,7 @@ notify = notify:new()
 awesome.connect_signal('battery::charger', function(online)
 	local profile
 	if online then
-		profile = 'balanced'
+		profile = 'performance'
 	else
 		profile = 'power-saver'
 	end
