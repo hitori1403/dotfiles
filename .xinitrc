@@ -6,7 +6,8 @@ SDL_IM_MODULE=fcitx \
 QT_QPA_PLATFORMTHEME=xdgdesktopportal \
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' \
 XDG_CURRENT_DESKTOP=gnome \
-GROFF_NO_SGR=1
+GROFF_NO_SGR=1 \
+EDITOR=nvim
 
 # Redshift
 ~/.local/bin/redshift_init &

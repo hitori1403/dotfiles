@@ -201,7 +201,8 @@ awful.screen.connect_for_each_screen(function(s)
 		buttons = tasklist_buttons
 	}
 
-	local battery = require('widgets.battery')
+	local coin = require 'widgets.coin'
+	local battery = require 'widgets.battery'
 
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s })
@@ -218,6 +219,7 @@ awful.screen.connect_for_each_screen(function(s)
 		{       -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(),
+			coin,
 			battery,
 			wibox.widget.textclock(),
 			s.mylayoutbox,
