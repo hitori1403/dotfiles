@@ -56,7 +56,7 @@ return {
 				"ruff",            -- Python linter
 				"solidity_ls_nomicfoundation", -- Solidity
 				"solargraph",      -- Ruby
-				"tsserver",        -- JavaScript
+				"ts_ls",           -- JavaScript
 				"yamlls",          -- YAML
 			}
 
@@ -91,7 +91,7 @@ return {
 				cmd = { 'dotnet', '/usr/lib/omnisharp/OmniSharp.dll' }
 			}
 
-			lspconfig.tsserver.setup {
+			lspconfig.ts_ls.setup {
 				-- on_attach = on_attach,
 				flags = lsp_flags,
 				capabilities = capabilities,
