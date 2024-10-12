@@ -37,16 +37,6 @@ enable_zram() {
 	echo 'Zram enabled'
 }
 
-build_apps() {
-	sudo pacman -S rust
-
-	cd ./build/coin-price/
-	cargo build --release
-	mv ./target/release/coin-price ~/.local/bin
-
-	echo "coin-price built"
-}
-
 copy_config
 
 adjust_touchpad_rules
@@ -54,5 +44,3 @@ handle_acpi_events
 
 enable_multilib
 enable_zram
-
-build_apps
