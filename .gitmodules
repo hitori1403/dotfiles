@@ -1,3 +1,0 @@
-[submodule "build/coin-price"]
-	path = build/coin-price
-	url = https://github.com/hitori1403/coin-price.git
