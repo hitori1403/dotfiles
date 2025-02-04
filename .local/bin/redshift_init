@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Get location info and write to redshift.conf
-GEOCLUE=$(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
+GEOCLUE=$(curl -s http://ip-api.com/json?fields=lat,lon)
 
 if [ ! -z "$GEOCLUE" ]; then
-	LATITUDE=$(echo $GEOCLUE | cut -d ':' -f 1)
-	LONGITUDE=$(echo $GEOCLUE | cut -d ':' -f 2)
+	LATITUDE=$(echo $GEOCLUE | awk -F '{|}|,|:' '{ print $3 }')
+	LONGITUDE=$(echo $GEOCLUE | awk -F'{|}|,|:' '{ print $5 }')
 
 	[ ! -d ~/.config/redshift ] && mkdir -p ~/.config/redshift
 
