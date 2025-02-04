@@ -3,11 +3,11 @@ export GTK_IM_MODULE=fcitx \
 QT_IM_MODULE=fcitx \
 XMODIFIERS=@im=fcitx \
 SDL_IM_MODULE=fcitx \
-QT_QPA_PLATFORMTHEME=xdgdesktopportal \
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' \
 XDG_CURRENT_DESKTOP=gnome \
 GROFF_NO_SGR=1 \
 EDITOR=nvim
+# QT_QPA_PLATFORMTHEME=xdgdesktopportal \
 
 # Redshift
 ~/.local/bin/redshift_init &
@@ -20,8 +20,11 @@ XSECURELOCK_SHOW_KEYBOARD_LAYOUT=0 \
 XSECURELOCK_SHOW_DATETIME=1 \
 xss-lock xsecurelock &
 
+# Keep potato awake
+caffeine &
+
 # Vietnamese input method
-fcitx &
+fcitx5 &
 
 # Network manager applet
 nm-applet &
