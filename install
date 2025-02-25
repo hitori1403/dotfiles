@@ -1,12 +1,14 @@
 #!/bin/bash
 
-copy_config() {
+install_configs() {
 	sudo cp -r .sysconf/* /
-	cp -r .[^.]* ~ && mv ~/.git ~/.dotfiles
-	echo 'Configs copied'
+	rm -rf .sysconf
+	cp -r .[^.]* ~
+	mv ~/.git ~/.dotfiles
+	echo 'Configs installed'
 }
 
-adjust_touchpad_rules() {
+install_touchpad_rules() {
 	FILE='/etc/udev/rules.d/01-touchpad.rules'
 
 	echo "Modifying $FILE"
@@ -14,20 +16,24 @@ adjust_touchpad_rules() {
 	sudo sed -i "s|address|$DBUS_SESSION_BUS_ADDRESS|g" $FILE # Error: DBUS_SESSION_BUS_ADDRESS is empty when running in chroot
 }
 
-handle_acpi_events() {
+change_acpi_events() {
 	FILE='/etc/systemd/logind.conf'
 
 	echo "Modifying $FILE"
+
 	# Suspend when power key is pressed
-	sudo sed -i '/^#HandlePowerKey=/s/^#//g' $FILE
-	sudo sed -i '/^HandlePowerKey=/s/poweroff/suspend/g' $FILE
+	sudo sed -i '/^#HandlePowerKey=/s/^#//g' \
+		-e '/^HandlePowerKey=/s/poweroff/suspend/g' $FILE
 }
 
-enable_multilib() {
+config_pacman() {
 	FILE='/etc/pacman.conf'
 
-	sudo sed -i '/^#\[multilib]/s/#//g' $FILE
+	sudo sed -i '/^#\[multilib\]/,/^#Include/s/#//' $FILE
 	echo 'Multilib enabled'
+
+	sudo sed -i '/^#Color/s/#//g' $FILE
+	echo 'Pacman color enabled'
 }
 
 enable_zram() {
@@ -37,10 +43,10 @@ enable_zram() {
 	echo 'Zram enabled'
 }
 
-copy_config
+install_configs
 
-adjust_touchpad_rules
-handle_acpi_events
+install_touchpad_rules
+change_acpi_events
+config_pacman
 
-enable_multilib
 enable_zram
