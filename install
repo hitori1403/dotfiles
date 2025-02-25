@@ -22,8 +22,8 @@ change_acpi_events() {
 	echo "Modifying $FILE"
 
 	# Suspend when power key is pressed
-	sudo sed -i '/^#HandlePowerKey=/s/^#//g' \
-		-e '/^HandlePowerKey=/s/poweroff/suspend/g' $FILE
+	sudo sed -i '/^#HandlePowerKey=/s/poweroff/suspend/g' $FILE
+	sudo sed -i '/^#HandlePowerKey=/s/^#//g' $FILE
 }
 
 config_pacman() {
@@ -37,7 +37,7 @@ config_pacman() {
 }
 
 enable_zram() {
-	sudo pacman -S --needed zram-generator
+	sudo pacman -Sy --needed zram-generator
 	sudo systemctl daemon-reload
 	sudo systemctl start systemd-zram-setup@zram0.service
 	echo 'Zram enabled'
