@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Factorio
+Exec=/home/hitori/.games/factorio/bin/x64/factorio
+Icon=/home/hitori/.games/factorio/data/core/graphics/factorio.png
+Type=Application
+Categories=Game;
