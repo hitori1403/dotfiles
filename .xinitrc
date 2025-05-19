@@ -6,7 +6,8 @@ SDL_IM_MODULE=fcitx \
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' \
 XDG_CURRENT_DESKTOP=gnome \
 GROFF_NO_SGR=1 \
-EDITOR=nvim
+EDITOR=nvim \
+SSH_ASKPASS=xaskpass
 # QT_QPA_PLATFORMTHEME=xdgdesktopportal \
 
 # Redshift
