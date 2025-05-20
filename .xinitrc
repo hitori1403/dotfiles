@@ -1,14 +1,8 @@
 # Environment variables
-export GTK_IM_MODULE=fcitx \
-QT_IM_MODULE=fcitx \
-XMODIFIERS=@im=fcitx \
-SDL_IM_MODULE=fcitx \
-_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' \
+export \
 XDG_CURRENT_DESKTOP=gnome \
-GROFF_NO_SGR=1 \
-EDITOR=nvim \
+GROFF_NO_SGR=1 \ # Fix weird characters in man page
 SSH_ASKPASS=xaskpass
-# QT_QPA_PLATFORMTHEME=xdgdesktopportal \
 
 # Redshift
 ~/.local/bin/redshift_init &
