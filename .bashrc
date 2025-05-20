@@ -102,10 +102,8 @@ fi
 # Try to keep environment pollution down, EPA loves us.
 unset use_color sh
 
-export PATH=$PATH:~/.local/bin:~/.cargo/bin:~/.local/share/gem/ruby/3.0.0/bin
-
-# IDAPython modules
-export PYTHONPATH=~/tools/ida_pro/python/3
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin"
 
 # Color for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -119,12 +117,11 @@ if [ -d "$HOME/.dotfiles" ]; then
 
 	source /usr/share/bash-completion/completions/git
 	__git_complete dotfiles __git_main
-
 fi
 
 # ASLR
-alias 'aslr_off'='echo 0 | sudo tee /proc/sys/kernel/randomize_va_space'
 alias 'aslr_on'='echo 2 | sudo tee /proc/sys/kernel/randomize_va_space'
+alias 'aslr_off'='echo 0 | sudo tee /proc/sys/kernel/randomize_va_space'
 
 # pyenv
 if command -v pyenv &>/dev/null; then
