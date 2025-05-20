@@ -1,3 +1,4 @@
 #!/bin/bash
+
 btrfs subvolume snapshot / /.snapshots/@_$(date +%Y-%m-%d_%H:%M:%S)
 btrfs subvolume snapshot /home/ /.snapshots/@home_$(date +%Y-%m-%d_%H:%M:%S)
