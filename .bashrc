@@ -102,6 +102,9 @@ fi
 # Try to keep environment pollution down, EPA loves us.
 unset use_color sh
 
+# chmod 777 colorblinding
+export LS_COLORS="${LS_COLORS}:ow=1;37;42"
+
 export GOPATH="$HOME/.go"
 export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin"
 
