@@ -1,7 +1,7 @@
 # Environment variables
 export \
 XDG_CURRENT_DESKTOP=gnome \
-GROFF_NO_SGR=1 \ # Fix weird characters in man page
+GROFF_NO_SGR=1 \
 SSH_ASKPASS=xaskpass
 
 # Redshift
