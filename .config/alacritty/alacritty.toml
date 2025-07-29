@@ -1,5 +1,5 @@
 [font]
-size = 8.0
+size = 12.0
 
 [font.bold]
 family = "Fira Code"
@@ -21,6 +21,10 @@ style = "Regular"
 action = "CreateNewWindow"
 key = "N"
 mods = "Control|Shift"
+
+[window.dimensions]
+columns = 95
+lines = 29
 
 [window.padding]
 x = 5

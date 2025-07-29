@@ -4,6 +4,11 @@ XDG_CURRENT_DESKTOP=gnome \
 GROFF_NO_SGR=1 \
 SSH_ASKPASS=xaskpass
 
+# Load .Xresources config
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+# Set DPI
+xrandr --dpi $(xrdb -query | awk '/Xft.dpi/ {print $2}')
+
 # Redshift
 ~/.local/bin/redshift_init &
 
@@ -29,9 +34,6 @@ nm-applet &
 
 # polkit-gnome
 [[ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]] && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# Load .Xresources config
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # Run windows manager
 exec awesome
