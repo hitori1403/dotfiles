@@ -111,15 +111,15 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin"
 # Color for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# dotfiles
+# Manage dotfiles
 if [ -d "$HOME/.dotfiles" ]; then
-	dotfiles_cmd="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-	alias dotfiles=$dotfiles_cmd
+	dotfile_cmd="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+	alias dotfile=$dotfile_cmd
 
-	$dotfiles_cmd config status.showUntrackedFiles no
+	$dotfile_cmd config status.showUntrackedFiles no
 
 	source /usr/share/bash-completion/completions/git
-	__git_complete dotfiles __git_main
+	__git_complete dotfile __git_main
 fi
 
 # ASLR
