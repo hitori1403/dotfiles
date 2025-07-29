@@ -11,19 +11,20 @@ install_configs() {
 install_touchpad_rules() {
 	FILE='/etc/udev/rules.d/01-touchpad.rules'
 
-	echo "Modifying $FILE"
 	sudo sed -i "s/user/$USER/g" $FILE
 	sudo sed -i "s|address|$DBUS_SESSION_BUS_ADDRESS|g" $FILE # Error: DBUS_SESSION_BUS_ADDRESS is empty when running in chroot
+	echo 'Touchpad udev rules configured'
 }
 
 change_acpi_events() {
 	FILE='/etc/systemd/logind.conf'
 
-	echo "Modifying $FILE"
 
-	# Suspend when power key is pressed
+	# Set power key to suspend
 	sudo sed -i '/^#HandlePowerKey=/s/poweroff/suspend/g' $FILE
 	sudo sed -i '/^#HandlePowerKey=/s/^#//g' $FILE
+
+	echo "ACPI suspend set"
 }
 
 config_pacman() {
@@ -36,6 +37,11 @@ config_pacman() {
 	echo 'Pacman color enabled'
 }
 
+disable_debug_option_makepkg() {
+	sudo sed -i '/^OPTIONS/s/ debug/ !debug/' /etc/makepkg.conf
+	echo 'Debug option makepkg disabled'
+}
+
 enable_zram() {
 	sudo pacman -Sy --needed zram-generator
 	sudo systemctl daemon-reload
@@ -44,9 +50,8 @@ enable_zram() {
 }
 
 install_configs
-
 install_touchpad_rules
 change_acpi_events
 config_pacman
-
+disable_debug_option_makepkg
 enable_zram
