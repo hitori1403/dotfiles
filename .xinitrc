@@ -1,37 +1,38 @@
 # Environment variables
-export \
-XDG_CURRENT_DESKTOP=gnome \
-GROFF_NO_SGR=1 \
-SSH_ASKPASS=xaskpass
+export XDG_CURRENT_DESKTOP=gnome
+export SSH_ASKPASS=xaskpass
+export GROFF_NO_SGR=1
+
+# Load .Xresources and apply DPI
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+xrandr --dpi $(xrdb -query | awk '/Xft.dpi/ {print $2}')
 
 # Redshift
-~/.local/bin/redshift_init &
+~/.local/bin/redshiftrc &
 
-# Auto lock screen
+# Screen lock settings
 xset s 600 5
+XSECURELOCK_SAVER=~/.local/bin/xsecurelock_bg \
+	XSECURELOCK_SHOW_KEYBOARD_LAYOUT=0 \
+	XSECURELOCK_SHOW_DATETIME=1 \
+	xss-lock xsecurelock &
 
-XSECURELOCK_SAVER=~/.local/bin/saver_image \
-XSECURELOCK_SHOW_KEYBOARD_LAYOUT=0 \
-XSECURELOCK_SHOW_DATETIME=1 \
-xss-lock xsecurelock &
-
-# Keep potato awake
+# Prevent sleep
 caffeine &
 
-# Vietnamese input method
+# Input method
 fcitx5 &
 
 # Network manager applet
 nm-applet &
 
-# gnome-keyring
+# GNOME keyring
 [[ -f /etc/X11/xinit/xinitrc.d/50-systemd-user.sh ]] && . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
-# polkit-gnome
+# Polkit agent
 [[ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]] && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# Load .Xresources config
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-
-# Run windows manager
+# Start windows manager
 exec awesome
+
+# vim: ft=sh
