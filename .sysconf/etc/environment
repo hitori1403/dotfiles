@@ -3,9 +3,16 @@
 #
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
+
+# Input method
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 SDL_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 
+# Default editor
 EDITOR=nvim
+
+# GDK scaling for 4K
+GDK_SCALE=2
+GDK_DPI_SCALE=0.5
