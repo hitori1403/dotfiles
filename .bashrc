@@ -13,6 +13,8 @@ if [[ $- != *i* ]]; then
 	return
 fi
 
+source /etc/profile
+
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
 # it regains control.  #65623
