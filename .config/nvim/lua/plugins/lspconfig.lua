@@ -40,8 +40,6 @@ return {
 				end,
 			})
 
-			local lspconfig = require("lspconfig")
-
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 			local servers = {
 				'asm_lsp',
@@ -69,7 +67,7 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup({
+				vim.lsp.config(lsp, {
 					-- on_attach = on_attach,
 					flags = lsp_flags,
 					-- single_file_support = true,
@@ -80,18 +78,18 @@ return {
 			local html_capabilities = vim.lsp.protocol.make_client_capabilities()
 			html_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-			lspconfig.html.setup {
+			vim.lsp.config('html', {
 				capabilities = html_capabilities,
-			}
+			})
 
-			lspconfig.omnisharp.setup {
+			vim.lsp.config('omnisharp', {
 				-- on_attach = on_attach,
 				flags = lsp_flags,
 				capabilities = capabilities,
 				cmd = { 'dotnet', '/usr/lib/omnisharp/OmniSharp.dll' }
-			}
+			})
 
-			lspconfig.ts_ls.setup {
+			vim.lsp.config('ts_ls', {
 				-- on_attach = on_attach,
 				flags = lsp_flags,
 				capabilities = capabilities,
@@ -100,7 +98,7 @@ return {
 						disableSuggestions = true
 					}
 				}
-			}
+			})
 		end
 	},
 	-- Java LSP
