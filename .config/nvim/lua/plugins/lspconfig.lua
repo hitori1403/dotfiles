@@ -73,6 +73,7 @@ return {
 					-- single_file_support = true,
 					capabilities = capabilities,
 				})
+				vim.lsp.enable(lsp)
 			end
 
 			local html_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -81,6 +82,7 @@ return {
 			vim.lsp.config('html', {
 				capabilities = html_capabilities,
 			})
+			vim.lsp.enable('html')
 
 			vim.lsp.config('omnisharp', {
 				-- on_attach = on_attach,
@@ -88,6 +90,7 @@ return {
 				capabilities = capabilities,
 				cmd = { 'dotnet', '/usr/lib/omnisharp/OmniSharp.dll' }
 			})
+			vim.lsp.enable('omnisharp')
 
 			vim.lsp.config('ts_ls', {
 				-- on_attach = on_attach,
@@ -99,6 +102,7 @@ return {
 					}
 				}
 			})
+			vim.lsp.enable('ts_ls')
 		end
 	},
 	-- Java LSP
