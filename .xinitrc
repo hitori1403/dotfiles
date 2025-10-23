@@ -1,7 +1,6 @@
 # Environment variables
 export XDG_CURRENT_DESKTOP=gnome
 export SSH_ASKPASS=xaskpass
-export GROFF_NO_SGR=1
 
 # Load .Xresources and apply DPI
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
@@ -12,10 +11,10 @@ xrandr --dpi $(xrdb -query | awk '/Xft.dpi/ {print $2}')
 
 # Screen lock settings
 xset s 600 5
-XSECURELOCK_SAVER=~/.local/bin/xsecurelock_bg \
-	XSECURELOCK_SHOW_KEYBOARD_LAYOUT=0 \
-	XSECURELOCK_SHOW_DATETIME=1 \
-	xss-lock xsecurelock &
+export XSECURELOCK_SAVER=~/.local/bin/xsecurelock_bg
+export XSECURELOCK_SHOW_KEYBOARD_LAYOUT=0
+export XSECURELOCK_SHOW_DATETIME=1
+xss-lock xsecurelock &
 
 # Prevent sleep
 caffeine &

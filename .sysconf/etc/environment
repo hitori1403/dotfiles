@@ -12,3 +12,6 @@ XMODIFIERS=@im=fcitx
 
 # Default editor
 EDITOR=nvim
+
+# Fix man-pages weird characters
+GROFF_NO_SGR=1
