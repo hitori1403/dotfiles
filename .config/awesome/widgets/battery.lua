@@ -83,7 +83,7 @@ awful.spawn.easy_async_with_shell("find /sys/class/power_supply/BAT?/capacity -p
 		end)
 	end)
 
-awful.spawn.easy_async_with_shell("find /sys/class/power_supply/ADP?/online -print -quit",
+awful.spawn.easy_async_with_shell("find /sys/class/power_supply/AC/online -print -quit",
 	function(charger_file, _, __, exit_code)
 		if exit_code ~= 0 then
 			return

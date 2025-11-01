@@ -31,6 +31,9 @@ nm-applet &
 # Polkit agent
 [[ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]] && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+# Compositor
+picom &
+
 # Start windows manager
 exec awesome
 

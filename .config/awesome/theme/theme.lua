@@ -8,7 +8,7 @@ theme.wallpaper             = themes_path .. 'background.jpg'
 -- }}}
 
 -- {{{ Styles
-theme.font                  = 'Terminus 9'
+theme.font                  = 'Fira Code 9'
 theme.font_icon             = 'Material Icons Round 15'
 theme.systray_icon_spacing  = 10
 

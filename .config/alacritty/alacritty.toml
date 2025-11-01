@@ -22,6 +22,10 @@ action = "CreateNewWindow"
 key = "N"
 mods = "Control|Shift"
 
+[window.dimensions]
+columns = 95
+lines = 29
+
 [window.padding]
 x = 5
 y = 5
