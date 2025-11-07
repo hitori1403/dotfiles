@@ -358,13 +358,13 @@ globalkeys = gears.table.join(
 	-- Screen brightness (using acpilight)
 	awful.key({}, "XF86MonBrightnessUp",
 		function()
-			awful.spawn("xbacklight -inc 5")
+			awful.spawn("brightnessctl set 2%+")
 			awesome.emit_signal('modules::backlight')
 		end
 	),
 	awful.key({}, "XF86MonBrightnessDown",
 		function()
-			awful.spawn("xbacklight -dec 5")
+			awful.spawn("brightnessctl set 2%-")
 			awesome.emit_signal('modules::backlight')
 		end
 	),
